@@ -1,3 +1,4 @@
 - introduction du projet + Discussion (25min)
 - rapport de travail (15min)
-- Mise en place de GitHub + planification sur git Project (50)
+- Mise en place de GitHub + planification sur git Project (50min)
+- maquette figma (90min)
