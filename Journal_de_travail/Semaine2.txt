@@ -1,2 +1,3 @@
-- Discussion sur la mise en place du projet(30min)
+- Discussion sur la mise en place du projet(35min)
 - Rapport: introduction, plannification, analyse fonctionnel(105min)
+- crée le projet c# commencer un peu le forms (15min)
