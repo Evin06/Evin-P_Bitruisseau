@@ -2,3 +2,4 @@
 - Rapport: introduction, plannification, analyse fonctionnel(105min)
 - Crée le projet c# commencer un peu le forms (15min)
 - Lancer le broker en local et se connecter sur MQTTX (10min)
+- Faire les différents commits et mettre à jour le journal de travail (10min)
