@@ -1,3 +1,4 @@
 - Discussion sur la mise en place du projet(35min)
 - Rapport: introduction, plannification, analyse fonctionnel(105min)
-- crée le projet c# commencer un peu le forms (15min)
+- Crée le projet c# commencer un peu le forms (15min)
+- Lancer le broker en local et se connecter sur MQTTX (10min)
