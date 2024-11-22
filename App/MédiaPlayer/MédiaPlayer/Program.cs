@@ -12,8 +12,6 @@ namespace MédiaPlayer
         [STAThread]
         static async Task Main()
         {
-            
-           
             Console.WriteLine("Starting the MQTT client...");
 
             string broker = "inf-n510-p301";
@@ -57,22 +55,20 @@ namespace MédiaPlayer
                     // Callback function when a message is received
                     mqttClient.ApplicationMessageReceivedAsync += e =>
                     {
-                        string message = Encoding.UTF8.GetString(e.ApplicationMessage.PayloadSegment);
-                        Console.WriteLine($"Received message: {message}");
+                        MessageBox.Show($"Received message: {Encoding.UTF8.GetString(e.ApplicationMessage.PayloadSegment)}");
                         return Task.CompletedTask;
                     };
 
-           
-                    // Publier un message personnalisé
+                    // Publish a message
                     var queryMessage = new MqttApplicationMessageBuilder()
                         .WithTopic(topic)
-                        .WithPayload("Salut tout le monde, quelqu'un a des musiques à partager ?")
+                        .WithPayload("Hello qui a des musiques ?")
                         .WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce)
                         .WithRetainFlag(false)
                         .Build();
 
                     await mqttClient.PublishAsync(queryMessage);
-                    Console.WriteLine("Message 'Salut tout le monde, quelqu'un a des musiques à partager ?' published.");
+                    Console.WriteLine("Hello qui a des musiques ?' published.");
 
 
                     // Unsubscribe and disconnect
@@ -90,6 +86,7 @@ namespace MédiaPlayer
             {
                 Console.WriteLine($"An error occurred: {ex.Message}");
             }
+
             Application.Run(new Form1());
         }
     }
