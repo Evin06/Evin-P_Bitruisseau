@@ -34,6 +34,7 @@
             label3 = new Label();
             label4 = new Label();
             MusicList = new TreeView();
+            vScrollBar1 = new VScrollBar();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -93,11 +94,19 @@
             MusicList.Size = new Size(369, 214);
             MusicList.TabIndex = 5;
             // 
+            // vScrollBar1
+            // 
+            vScrollBar1.Location = new Point(660, 145);
+            vScrollBar1.Name = "vScrollBar1";
+            vScrollBar1.Size = new Size(17, 80);
+            vScrollBar1.TabIndex = 6;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(vScrollBar1);
             Controls.Add(MusicList);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -119,5 +128,6 @@
         private Label label3;
         private Label label4;
         private TreeView MusicList;
+        private VScrollBar vScrollBar1;
     }
 }

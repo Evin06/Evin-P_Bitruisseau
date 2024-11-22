@@ -1,4 +1,6 @@
 - Discussion avec le prof pour le journal de travail sur git(20min)
 - afficher les musiques qui sont dans un dossier(25min)
 - Connecter avec le brocker et envoier un message (45min)
-- essayer de modifier l'affichage des listes
+- essayer de modifier l'affichage des listes(15min)
+- Essayer de recevoir les messages des autres(ca marche mais j'arrive pas recevoir les nouvelles messages)(45min)
+- continuer à améliorer l'ux avec scroll bar(15min)
