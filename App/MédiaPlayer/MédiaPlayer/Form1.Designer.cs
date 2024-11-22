@@ -45,7 +45,6 @@
             pictureBox1.Size = new Size(183, 362);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-      
             // 
             // label1
             // 
@@ -93,7 +92,6 @@
             MusicList.Name = "MusicList";
             MusicList.Size = new Size(369, 214);
             MusicList.TabIndex = 5;
-       
             // 
             // Form1
             // 

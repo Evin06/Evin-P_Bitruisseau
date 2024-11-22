@@ -1,1 +1,4 @@
 - Discussion avec le prof pour le journal de travail sur git(20min)
+- afficher les musiques qui sont dans un dossier(25min)
+- Connecter avec le brocker et envoier un message (45min)
+- essayer de modifier l'affichage des listes
