@@ -1,3 +1,5 @@
+using MQTTnet;
+
 namespace MédiaPlayer
 {
     internal static class Program
@@ -12,6 +14,9 @@ namespace MédiaPlayer
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
+
+
+
         }
     }
 }

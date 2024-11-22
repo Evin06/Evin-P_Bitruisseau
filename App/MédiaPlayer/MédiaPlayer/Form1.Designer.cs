@@ -33,6 +33,7 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
+            MusicList = new TreeView();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             pictureBox1.Size = new Size(183, 362);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+      
             // 
             // label1
             // 
@@ -86,11 +87,20 @@
             label4.TabIndex = 4;
             label4.Text = "réglages";
             // 
+            // MusicList
+            // 
+            MusicList.Location = new Point(319, 122);
+            MusicList.Name = "MusicList";
+            MusicList.Size = new Size(369, 214);
+            MusicList.TabIndex = 5;
+       
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(MusicList);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -110,5 +120,6 @@
         private Label label2;
         private Label label3;
         private Label label4;
+        private TreeView MusicList;
     }
 }
