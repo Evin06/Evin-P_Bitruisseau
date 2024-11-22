@@ -10,6 +10,8 @@
 
   <ItemGroup>
     <PackageReference Include="MQTTnet" Version="4.3.7.1207" />
+    <PackageReference Include="MQTTnet.AspNetCore" Version="4.3.7.1207" />
+    <PackageReference Include="MQTTnet.Extensions.ManagedClient" Version="4.3.7.1207" />
     <PackageReference Include="System.Linq" Version="4.3.0" />
   </ItemGroup>
 

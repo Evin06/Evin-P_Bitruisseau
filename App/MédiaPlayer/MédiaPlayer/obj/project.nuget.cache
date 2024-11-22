@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "yfNFKqRMKDo=",
+  "dgSpecHash": "83S1GTfI/a0=",
   "success": true,
   "projectFilePath": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\MédiaPlayer\\MédiaPlayer\\MédiaPlayer.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\py85yge\\.nuget\\packages\\mqttnet\\4.3.7.1207\\mqttnet.4.3.7.1207.nupkg.sha512",
+    "C:\\Users\\py85yge\\.nuget\\packages\\mqttnet.aspnetcore\\4.3.7.1207\\mqttnet.aspnetcore.4.3.7.1207.nupkg.sha512",
+    "C:\\Users\\py85yge\\.nuget\\packages\\mqttnet.extensions.managedclient\\4.3.7.1207\\mqttnet.extensions.managedclient.4.3.7.1207.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.diagnostics.debug\\4.3.0\\system.diagnostics.debug.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.globalization\\4.3.0\\system.globalization.4.3.0.nupkg.sha512",

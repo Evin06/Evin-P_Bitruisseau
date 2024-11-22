@@ -52,6 +52,14 @@
               "target": "Package",
               "version": "[4.3.7.1207, )"
             },
+            "MQTTnet.AspNetCore": {
+              "target": "Package",
+              "version": "[4.3.7.1207, )"
+            },
+            "MQTTnet.Extensions.ManagedClient": {
+              "target": "Package",
+              "version": "[4.3.7.1207, )"
+            },
             "System.Linq": {
               "target": "Package",
               "version": "[4.3.0, )"
