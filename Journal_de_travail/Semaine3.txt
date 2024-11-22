@@ -4,3 +4,4 @@
 - essayer de modifier l'affichage des listes(15min)
 - Essayer de recevoir les messages des autres(ca marche mais j'arrive pas recevoir les nouvelles messages)(45min)
 - continuer à améliorer l'ux avec scroll bar(15min)
+- remplir le journal de travail + commit sur git (15min)
