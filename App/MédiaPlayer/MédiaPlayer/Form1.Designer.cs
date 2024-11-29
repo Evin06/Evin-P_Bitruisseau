@@ -35,6 +35,8 @@
             label4 = new Label();
             MusicList = new TreeView();
             vScrollBar1 = new VScrollBar();
+            button1 = new Button();
+            listBox1 = new ListBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -89,10 +91,11 @@
             // 
             // MusicList
             // 
-            MusicList.Location = new Point(319, 122);
+            MusicList.Location = new Point(271, 113);
             MusicList.Name = "MusicList";
             MusicList.Size = new Size(369, 214);
             MusicList.TabIndex = 5;
+
             // 
             // vScrollBar1
             // 
@@ -101,11 +104,33 @@
             vScrollBar1.Size = new Size(17, 80);
             vScrollBar1.TabIndex = 6;
             // 
+            // button1
+            // 
+            button1.Location = new Point(669, 379);
+            button1.Name = "button1";
+            button1.Size = new Size(107, 46);
+            button1.TabIndex = 7;
+            button1.Text = "Send Request";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 15;
+            listBox1.Location = new Point(302, 140);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(316, 169);
+            listBox1.TabIndex = 8;
+ 
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(listBox1);
+            Controls.Add(button1);
             Controls.Add(vScrollBar1);
             Controls.Add(MusicList);
             Controls.Add(label4);
@@ -129,5 +154,7 @@
         private Label label4;
         private TreeView MusicList;
         private VScrollBar vScrollBar1;
+        private Button button1;
+        private ListBox listBox1;
     }
 }

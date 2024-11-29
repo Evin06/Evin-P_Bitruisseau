@@ -62,7 +62,7 @@ namespace MédiaPlayer
                     // Publish a message
                     var queryMessage = new MqttApplicationMessageBuilder()
                         .WithTopic(topic)
-                        .WithPayload("Hello qui a des musiques ?")
+                        .WithPayload("HELLO qui a des musiques ?")
                         .WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce)
                         .WithRetainFlag(false)
                         .Build();
