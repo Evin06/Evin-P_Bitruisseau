@@ -5,3 +5,4 @@
 - affchier ma liste sur le forms et modifier l'ux de la page(15min)
 - afficher le nom, durée, extension etc.. dans la liste (35min)
 - discussion avec les camarades par rapport au projet(+- calculer sur les 4 périodes) (15min)
+- remplir le journal de travail et faire les commits (15min)
