@@ -1,9 +1,9 @@
 using System;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 using MQTTnet;
 using MQTTnet.Client;
+using TagLib;
 
 namespace MédiaPlayer
 {
@@ -68,6 +68,7 @@ namespace MédiaPlayer
                     return;
                 }
 
+                // Récupérer tous les fichiers .mp3 dans le dossier
                 string[] musicFiles = Directory.GetFiles(musicFolderPath, "*.mp3");
 
                 if (musicFiles.Length == 0)
@@ -78,7 +79,26 @@ namespace MédiaPlayer
 
                 foreach (string musicFile in musicFiles)
                 {
-                    listBox1.Items.Add(Path.GetFileName(musicFile));
+                    try
+                    {
+                        // Utiliser TagLib pour extraire les métadonnées
+                        var file = TagLib.File.Create(musicFile);
+                        var duration = file.Properties.Duration;
+
+                        var music = new Music
+                        {
+                            Name = Path.GetFileNameWithoutExtension(musicFile), // Nom sans extension
+                            Extension = Path.GetExtension(musicFile), // Extension (ex: .mp3)
+                            Duration = $"{(int)duration.TotalMinutes} min {duration.Seconds} sec" // Durée formatée
+                        };
+
+                        // Ajouter la description formatée à la ListBox
+                        listBox1.Items.Add(music.GetFormattedDetails());
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erreur avec le fichier {Path.GetFileName(musicFile)} : {ex.Message}");
+                    }
                 }
             }
             catch (Exception ex)
@@ -126,16 +146,30 @@ namespace MédiaPlayer
 
         private void buttonReglage_Click(object sender, EventArgs e)
         {
-           
+            MessageBox.Show("Réglages à définir.");
         }
+
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Vérifier si un élément est sélectionné
             if (listBox1.SelectedItem != null)
             {
-                // Afficher le fichier sélectionné (ou ajoutez une autre logique)
                 MessageBox.Show($"Fichier sélectionné : {listBox1.SelectedItem}");
             }
+        }
+    }
+
+    // Classe pour stocker les informations des fichiers musicaux
+    public class Music
+    {
+        public string Name { get; set; } // Nom du fichier
+        public string Extension { get; set; } // Extension du fichier (ex: .mp3)
+        public string Duration { get; set; } // Durée du fichier en minutes et secondes
+
+        // Retourne une chaîne formatée pour affichage dans la ListBox
+        public string GetFormattedDetails()
+        {
+            return $"{Name} | {Extension} | {Duration}";
         }
     }
 }

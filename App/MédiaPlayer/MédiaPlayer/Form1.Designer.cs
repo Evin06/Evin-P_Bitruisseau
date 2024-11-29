@@ -55,6 +55,7 @@
             // 
             // listBox1
             // 
+            listBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
             listBox1.Location = new Point(262, 94);
@@ -65,7 +66,8 @@
             // 
             // buttonMesMedias
             // 
-            buttonMesMedias.Location = new Point(60, 120);
+            buttonMesMedias.Font = new Font("Segoe UI", 12F);
+            buttonMesMedias.Location = new Point(60, 136);
             buttonMesMedias.Name = "buttonMesMedias";
             buttonMesMedias.Size = new Size(120, 30);
             buttonMesMedias.TabIndex = 4;
@@ -75,7 +77,8 @@
             // 
             // buttonMediaAutres
             // 
-            buttonMediaAutres.Location = new Point(60, 160);
+            buttonMediaAutres.Font = new Font("Segoe UI", 12F);
+            buttonMediaAutres.Location = new Point(60, 193);
             buttonMediaAutres.Name = "buttonMediaAutres";
             buttonMediaAutres.Size = new Size(120, 30);
             buttonMediaAutres.TabIndex = 5;
@@ -85,7 +88,8 @@
             // 
             // buttonReglage
             // 
-            buttonReglage.Location = new Point(60, 200);
+            buttonReglage.Font = new Font("Segoe UI", 12F);
+            buttonReglage.Location = new Point(60, 241);
             buttonReglage.Name = "buttonReglage";
             buttonReglage.Size = new Size(120, 30);
             buttonReglage.TabIndex = 6;
