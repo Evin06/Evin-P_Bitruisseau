@@ -1,2 +1,2 @@
 - petit meeating avec le prof (10min)
--
+- Connecter au brocker et tester l'état actuel du projet (15min)
