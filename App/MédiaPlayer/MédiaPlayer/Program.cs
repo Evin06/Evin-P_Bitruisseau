@@ -1,6 +1,9 @@
-using System.Security.Authentication;
-using System.Security.Cryptography.X509Certificates;
+using System;
+using System.IO;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 using MQTTnet;
 using MQTTnet.Client;
 using MQTTnet.Protocol;
@@ -9,85 +12,133 @@ namespace MédiaPlayer
 {
     internal static class Program
     {
+        private static IMqttClient mqttClient;
+        private const string broker = "blue.section-inf.ch";
+        private const int port = 1883;
+        private const string topic = "test";
+        private const string username = "ict";
+        private const string password = "321";
+
         [STAThread]
         static async Task Main()
         {
-            Console.WriteLine("Starting the MQTT client...");
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
 
-            string broker = "blue.section-inf.ch";
-            int port = 1883;
-            string clientId = Guid.NewGuid().ToString();
-            string topic = "test";
-            string username = "ict";
-            string password = "321";
+            // Initialize MQTT client
+            await InitializeMqttClient();
 
-            // Create a MQTT client factory
-            var factory = new MqttFactory();
+            // Run the application
+            Application.Run(new Form1());
+        }
 
-            // Create a MQTT client instance
-            var mqttClient = factory.CreateMqttClient();
-
-            // Create MQTT client options
-            var options = new MqttClientOptionsBuilder()
-                .WithTcpServer(broker, port) // MQTT broker address and port
-                .WithCredentials(username, password) // Set username and password
-                .WithClientId(clientId)
-                .WithCleanSession()
-                .Build();
-
+        private static async Task InitializeMqttClient()
+        {
             try
             {
-                Console.WriteLine("Connecting to the MQTT broker...");
+                var factory = new MqttFactory();
+                mqttClient = factory.CreateMqttClient();
+
+                var options = new MqttClientOptionsBuilder()
+                    .WithTcpServer(broker, port)
+                    .WithCredentials(username, password)
+                    .WithClientId(Guid.NewGuid().ToString())
+                    .WithCleanSession()
+                    .Build();
+
+                // Connect to MQTT broker
                 var connectResult = await mqttClient.ConnectAsync(options);
 
                 if (connectResult.ResultCode == MqttClientConnectResultCode.Success)
                 {
                     MessageBox.Show("Connected to MQTT broker successfully.");
 
-                    // Subscribe to a topic
+                    // Subscribe to the topic
                     await mqttClient.SubscribeAsync(new MqttTopicFilterBuilder()
                         .WithTopic(topic)
                         .WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce)
                         .Build());
 
-                    Console.WriteLine($"Subscribed to topic '{topic}'.");
 
-                    // Callback function when a message is received
-                    mqttClient.ApplicationMessageReceivedAsync += e =>
-                    {
-                        MessageBox.Show($"Received message: {Encoding.UTF8.GetString(e.ApplicationMessage.PayloadSegment)}");
-                        return Task.CompletedTask;
-                    };
-
-                    // Publish a message
-                    var queryMessage = new MqttApplicationMessageBuilder()
-                        .WithTopic(topic)
-                        .WithPayload("HELLO qui a des musiques ?")
-                        .WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce)
-                        .WithRetainFlag(false)
-                        .Build();
-
-                    await mqttClient.PublishAsync(queryMessage);
-                    Console.WriteLine("Hello qui a des musiques ?' published.");
-
-
-                    // Unsubscribe and disconnect
-                    Console.WriteLine("Unsubscribing and disconnecting...");
-                    await mqttClient.UnsubscribeAsync(topic);
-                    await mqttClient.DisconnectAsync();
-                    Console.WriteLine("Disconnected from MQTT broker.");
+                    // Register callback for received messages
+                    mqttClient.ApplicationMessageReceivedAsync += HandleReceivedMessage;
                 }
                 else
                 {
-                    Console.WriteLine($"Failed to connect to MQTT broker: {connectResult.ResultCode}");
+                    MessageBox.Show($"Failed to connect to MQTT broker: {connectResult.ResultCode}");
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred: {ex.Message}");
+                MessageBox.Show($"Error initializing MQTT client: {ex.Message}");
             }
+        }
 
-            Application.Run(new Form1());
+        private static async Task HandleReceivedMessage(MqttApplicationMessageReceivedEventArgs e)
+        {
+            try
+            {
+                // Decode the message payload
+                string receivedMessage = Encoding.UTF8.GetString(e.ApplicationMessage.PayloadSegment);
+                MessageBox.Show($"Message received: {receivedMessage}");
+
+                // If the message contains "hello", respond with the music list
+                if (receivedMessage.Contains("hello"))
+                {
+                    string musicList = GetMusicList();
+
+                    // Send the list of music files back
+                    await SendMqttMessage(musicList);
+
+                    MessageBox.Show("Music list sent.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error handling received message: {ex.Message}");
+            }
+        }
+
+        private static async Task SendMqttMessage(string message)
+        {
+            try
+            {
+                var mqttMessage = new MqttApplicationMessageBuilder()
+                    .WithTopic(topic)
+                    .WithPayload(message)
+                    .WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce)
+                    .WithRetainFlag(false)
+                    .Build();
+
+                await mqttClient.PublishAsync(mqttMessage);
+               
+            }
+            catch (Exception ex)
+            {
+                        MessageBox.Show ($"Error sending MQTT message: {ex.Message}");
+            }
+        }
+
+        private static string GetMusicList()
+        {
+            string musicFolderPath = @"..\..\..\Music";
+            try
+            {
+                // Retrieve all mp3 files from the specified directory
+                string[] musicFiles = Directory.GetFiles(musicFolderPath, "*.mp3");
+
+                // Get only the file names
+                var fileNames = musicFiles.Select(Path.GetFileName).ToArray();
+
+                // Join the file names into a single string separated by commas
+                return fileNames.Length > 0
+                    ? "Available music: " + string.Join(", ", fileNames)
+                    : "No music files found.";
+            }
+            catch (Exception ex)
+            {
+                return $"Error retrieving music files: {ex.Message}";
+            }
         }
     }
 }
