@@ -14,7 +14,7 @@ namespace MédiaPlayer
         {
             Console.WriteLine("Starting the MQTT client...");
 
-            string broker = "inf-n510-p301";
+            string broker = "blue.section-inf.ch";
             int port = 1883;
             string clientId = Guid.NewGuid().ToString();
             string topic = "test";
