@@ -1,4 +1,5 @@
 - petit meeating avec le prof (10min)
 - Connecter au brocker et tester l'état actuel du projet (15min)
 - envoyer ma liste de musique et recevoir la liste des autres (45min)
--modifier le code pour qu'il y ai pas la partie envoyer et revoir dans la form1 mais de l'avoir dans program.cs(20min)
+- modifier le code pour qu'il y ai pas la partie envoyer et revoir dans la form1 mais de l'avoir dans program.cs(20min)
+- affchier ma liste sur le forms et modifier l'ux de la page(15min)

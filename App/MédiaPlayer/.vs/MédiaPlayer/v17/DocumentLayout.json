@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\py85yge\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\py85yge\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,6 +13,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\py85yge\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\py85yge\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,17 +26,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Form1.cs",
               "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Form1.cs",
               "ToolTip": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Form1.cs",
               "RelativeToolTip": "M\u00E9diaPlayer\\Form1.cs",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAwwF4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAcwHsAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-15T14:28:18.237Z",
               "IsPinned": true,
@@ -44,13 +44,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Program.cs",
               "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Program.cs",
-              "ToolTip": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Program.cs*",
-              "RelativeToolTip": "M\u00E9diaPlayer\\Program.cs*",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAswDAAAAApAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Program.cs",
+              "RelativeToolTip": "M\u00E9diaPlayer\\Program.cs",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAqwBsAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-22T11:51:35.906Z",
               "IsPinned": true,
@@ -58,20 +58,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Form1.Designer.cs",
               "ToolTip": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Form1.Designer.cs",
               "RelativeToolTip": "M\u00E9diaPlayer\\Form1.Designer.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAiwCQAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAASwDgAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-29T12:27:41.763Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Form1.cs [Conception]",
               "DocumentMoniker": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Form1.cs",
               "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Form1.cs",

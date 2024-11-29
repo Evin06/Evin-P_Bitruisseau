@@ -80,17 +80,19 @@ namespace MédiaPlayer
             {
                 // Decode the message payload
                 string receivedMessage = Encoding.UTF8.GetString(e.ApplicationMessage.PayloadSegment);
-                MessageBox.Show($"Message received: {receivedMessage}");
 
-                // If the message contains "hello", respond with the music list
+                // Check if the message contains exactly "hello"
                 if (receivedMessage.Contains("hello"))
                 {
-                    string musicList = GetMusicList();
 
-                    // Send the list of music files back
+                    // Respond with the music list
+                    string musicList = GetMusicList();
                     await SendMqttMessage(musicList);
 
-                    MessageBox.Show("Music list sent.");
+                }
+                else
+                {
+                    Console.WriteLine($"Ignored message: {receivedMessage}");
                 }
             }
             catch (Exception ex)
@@ -111,11 +113,10 @@ namespace MédiaPlayer
                     .Build();
 
                 await mqttClient.PublishAsync(mqttMessage);
-               
             }
             catch (Exception ex)
             {
-                        MessageBox.Show ($"Error sending MQTT message: {ex.Message}");
+                MessageBox.Show($"Error sending MQTT message: {ex.Message}");
             }
         }
 

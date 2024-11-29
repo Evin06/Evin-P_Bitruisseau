@@ -17,18 +17,18 @@
         {
             pictureBox1 = new PictureBox();
             label1 = new Label();
-            button1 = new Button();
+            buttonSend = new Button();
             listBox1 = new ListBox();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
+            buttonMesMedias = new Button();
+            buttonMediaAutres = new Button();
+            buttonReglage = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
             pictureBox1.BackColor = SystemColors.ButtonShadow;
-            pictureBox1.Location = new Point(51, 70);
+            pictureBox1.Location = new Point(30, 70);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(175, 281);
             pictureBox1.TabIndex = 0;
@@ -44,14 +44,14 @@
             label1.TabIndex = 3;
             label1.Text = "MEDIA PLAYER";
             // 
-            // button1
+            // buttonSend
             // 
-            button1.Location = new Point(525, 375);
-            button1.Name = "button1";
-            button1.Size = new Size(81, 22);
-            button1.TabIndex = 2;
-            button1.Text = "Send Request";
-            button1.Click += button1_Click;
+            buttonSend.Location = new Point(525, 375);
+            buttonSend.Name = "buttonSend";
+            buttonSend.Size = new Size(81, 22);
+            buttonSend.TabIndex = 2;
+            buttonSend.Text = "Send";
+            buttonSend.Click += buttonSend_Click;
             // 
             // listBox1
             // 
@@ -63,46 +63,46 @@
             listBox1.TabIndex = 1;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
-            // label2
+            // buttonMesMedias
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 15F);
-            label2.Location = new Point(81, 149);
-            label2.Name = "label2";
-            label2.Size = new Size(116, 28);
-            label2.TabIndex = 4;
-            label2.Text = "Mes Médias";
+            buttonMesMedias.Location = new Point(60, 120);
+            buttonMesMedias.Name = "buttonMesMedias";
+            buttonMesMedias.Size = new Size(120, 30);
+            buttonMesMedias.TabIndex = 4;
+            buttonMesMedias.Text = "Mes Médias";
+            buttonMesMedias.UseVisualStyleBackColor = true;
+            buttonMesMedias.Click += buttonMesMedias_Click;
             // 
-            // label3
+            // buttonMediaAutres
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 15F);
-            label3.Location = new Point(60, 189);
-            label3.Name = "label3";
-            label3.Size = new Size(160, 28);
-            label3.TabIndex = 5;
-            label3.Text = "Média des autres";
+            buttonMediaAutres.Location = new Point(60, 160);
+            buttonMediaAutres.Name = "buttonMediaAutres";
+            buttonMediaAutres.Size = new Size(120, 30);
+            buttonMediaAutres.TabIndex = 5;
+            buttonMediaAutres.Text = "Média des autres";
+            buttonMediaAutres.UseVisualStyleBackColor = true;
+            buttonMediaAutres.Click += buttonMediaAutres_Click;
             // 
-            // label4
+            // buttonReglage
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 15F);
-            label4.Location = new Point(93, 250);
-            label4.Name = "label4";
-            label4.Size = new Size(82, 28);
-            label4.TabIndex = 6;
-            label4.Text = "Réglage";
+            buttonReglage.Location = new Point(60, 200);
+            buttonReglage.Name = "buttonReglage";
+            buttonReglage.Size = new Size(120, 30);
+            buttonReglage.TabIndex = 6;
+            buttonReglage.Text = "Réglage";
+            buttonReglage.UseVisualStyleBackColor = true;
+            buttonReglage.Click += buttonReglage_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 422);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
+            Controls.Add(buttonReglage);
+            Controls.Add(buttonMediaAutres);
+            Controls.Add(buttonMesMedias);
             Controls.Add(listBox1);
-            Controls.Add(button1);
+            Controls.Add(buttonSend);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             Name = "Form1";
@@ -114,10 +114,10 @@
 
         private PictureBox pictureBox1;
         private Label label1;
-        private Button button1;
+        private Button buttonSend;
         private ListBox listBox1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
+        private Button buttonMesMedias;
+        private Button buttonMediaAutres;
+        private Button buttonReglage;
     }
 }
