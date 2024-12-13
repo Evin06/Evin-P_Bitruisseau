@@ -4,3 +4,4 @@
 -Commencer La serialization (20min)
 -80% du projet avec le prof(10min)
 -Commencer a refactoriser le projet(40min)
+-remplir le journal de travail et faire les commits(15min)
