@@ -6,7 +6,7 @@ namespace MédiaPlayer
 {
     public class MusicManager
     {
-        // Sérialiser une liste de musiques en JSON
+        // Sérialiser une liste de musiques en JSONs
         public static string SerializeMusicList(List<Music> musicList)
         {
             return JsonSerializer.Serialize(musicList);  
@@ -17,5 +17,6 @@ namespace MédiaPlayer
         {
             return JsonSerializer.Deserialize<List<Music>>(json);
         }
+
     }
 }
