@@ -1,3 +1,6 @@
 -Remplir le journal de travail de la semaine précedente (5min)
 -Relancer le projet et verifier si ca marche et ce remettre dans le bain (10min)
 -Recupere les musiques des autres et affiches dans la lsite media des autres(100min)
+-Commencer La serialization (20min)
+-80% du projet avec le prof(10min)
+ 
