@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MédiaPlayer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+64b6ad20c222d094f5b951aa54ff5dfcefd3d42b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9d3d090d628464fdf3d2cef04873917795532b64")]
 [assembly: System.Reflection.AssemblyProductAttribute("MédiaPlayer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MédiaPlayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

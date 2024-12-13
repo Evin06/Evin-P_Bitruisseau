@@ -4,12 +4,16 @@ using System.Windows.Forms;
 using MQTTnet;
 using MQTTnet.Client;
 using TagLib;
+using System.Text;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MédiaPlayer
 {
     public partial class Form1 : Form
     {
         private IMqttClient mqttClient;
+        private static List<string> receivedMusicList = new List<string>(); // Liste des musiques reçues via MQTT
 
         public Form1()
         {
@@ -36,6 +40,15 @@ namespace MédiaPlayer
                 if (connectResult.ResultCode == MQTTnet.Client.MqttClientConnectResultCode.Success)
                 {
                     MessageBox.Show("Connected to MQTT broker.");
+
+                    // Subscribe to the topic
+                    await mqttClient.SubscribeAsync(new MqttTopicFilterBuilder()
+                        .WithTopic("test")
+                        .WithQualityOfServiceLevel(MQTTnet.Protocol.MqttQualityOfServiceLevel.AtLeastOnce)
+                        .Build());
+
+                    // Register callback for received messages
+                    mqttClient.ApplicationMessageReceivedAsync += HandleReceivedMessage;
                 }
                 else
                 {
@@ -48,9 +61,45 @@ namespace MédiaPlayer
             }
         }
 
+        private async Task HandleReceivedMessage(MqttApplicationMessageReceivedEventArgs e)
+        {
+            try
+            {
+                // Décoder le message reçu
+                string receivedMessage = Encoding.UTF8.GetString(e.ApplicationMessage.PayloadSegment);
+
+                if (receivedMessage.Contains(":"))
+                {
+                    // Extraire la partie après les deux-points
+                    string musicPart = receivedMessage.Split(':')[1].Trim();
+
+                    // Séparer les musiques par les virgules
+                    string[] musicFiles = musicPart.Split(new[] { ", " }, StringSplitOptions.None);
+
+                    foreach (var music in musicFiles)
+                    {
+                        if (!string.IsNullOrWhiteSpace(music)) 
+                        {
+                            receivedMusicList.Add(music); // Ajouter le nom de la musique à la liste
+                        }
+                    }
+                }
+                else
+                {
+                    // Le message ne correspond pas au format attendu (par exemple, pas de ":")
+                    Console.WriteLine($"Message ignoré : {receivedMessage}");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Gérer les erreurs de traitement
+                MessageBox.Show($"Erreur lors du traitement du message : {ex.Message}");
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Charger les fichiers musicaux au démarrage
+            // Charger les fichiers musicaux locaux au démarrage
             LoadMusicFiles();
         }
 
@@ -68,8 +117,10 @@ namespace MédiaPlayer
                     return;
                 }
 
-                // Récupérer tous les fichiers .mp3 dans le dossier
-                string[] musicFiles = Directory.GetFiles(musicFolderPath, "*.mp3");
+                // Récupérer tous les fichiers musicaux (tous formats)
+                string[] musicFiles = Directory.GetFiles(musicFolderPath, "*.*")
+                    .Where(file => file.EndsWith(".mp3") || file.EndsWith(".wav") || file.EndsWith(".ogg") || file.EndsWith(".flac"))
+                    .ToArray();
 
                 if (musicFiles.Length == 0)
                 {
@@ -142,6 +193,19 @@ namespace MédiaPlayer
         private void buttonMediaAutres_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
+
+            if (receivedMusicList.Count > 0)
+            {
+                // Afficher la liste des musiques reçues dans la ListBox
+                foreach (var music in receivedMusicList)
+                {
+                    listBox1.Items.Add(music);
+                }
+            }
+            else
+            {
+                listBox1.Items.Add("Aucune musique reçue pour le moment.");
+            }
         }
 
         private void buttonReglage_Click(object sender, EventArgs e)
