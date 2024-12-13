@@ -82,7 +82,7 @@ namespace MédiaPlayer
                 string receivedMessage = Encoding.UTF8.GetString(e.ApplicationMessage.PayloadSegment);
 
                 // Check if the message contains exactly "hello"
-                if (receivedMessage.Contains("hello"))
+                if (receivedMessage.Contains("HELLO"))
                 {
 
                     // Respond with the music list

@@ -78,9 +78,9 @@
             // buttonMediaAutres
             // 
             buttonMediaAutres.Font = new Font("Segoe UI", 12F);
-            buttonMediaAutres.Location = new Point(60, 193);
+            buttonMediaAutres.Location = new Point(51, 192);
             buttonMediaAutres.Name = "buttonMediaAutres";
-            buttonMediaAutres.Size = new Size(120, 30);
+            buttonMediaAutres.Size = new Size(140, 30);
             buttonMediaAutres.TabIndex = 5;
             buttonMediaAutres.Text = "Média des autres";
             buttonMediaAutres.UseVisualStyleBackColor = true;

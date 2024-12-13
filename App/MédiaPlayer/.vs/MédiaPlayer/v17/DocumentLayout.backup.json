@@ -11,7 +11,7 @@
       "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\py85yge\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\m\u00E9diaplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Form1.cs",
               "ToolTip": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Form1.cs",
               "RelativeToolTip": "M\u00E9diaPlayer\\Form1.cs",
-              "ViewState": "AgIAAIYAAAAAAAAAAAAiwKgAAABGAAAAAAAAAA==",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAcwFgAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-15T14:28:18.237Z",
               "IsPinned": true,
@@ -50,7 +50,7 @@
               "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Program.cs",
               "ToolTip": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Program.cs",
               "RelativeToolTip": "M\u00E9diaPlayer\\Program.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAqwCIAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAowFQAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-22T11:51:35.906Z",
               "IsPinned": true,
@@ -64,10 +64,9 @@
               "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Form1.Designer.cs",
               "ToolTip": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Form1.Designer.cs",
               "RelativeToolTip": "M\u00E9diaPlayer\\Form1.Designer.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAASwDgAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAADYAAAAAAAAAAAASwDgAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T12:27:41.763Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-29T12:27:41.763Z"
             },
             {
               "$type": "Document",
@@ -78,8 +77,7 @@
               "ToolTip": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Form1.cs [Conception]",
               "RelativeToolTip": "M\u00E9diaPlayer\\Form1.cs [Conception]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T12:26:47.572Z",
-              "EditorCaption": " [Conception]"
+              "WhenOpened": "2024-11-29T12:26:47.572Z"
             }
           ]
         }
