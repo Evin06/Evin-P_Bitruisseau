@@ -86,7 +86,6 @@ namespace MédiaPlayer
                 }
                 else
                 {
-                    // Le message ne correspond pas au format attendu (par exemple, pas de ":")
                     Console.WriteLine($"Message ignoré : {receivedMessage}");
                 }
             }
@@ -119,7 +118,7 @@ namespace MédiaPlayer
 
                 // Récupérer tous les fichiers musicaux (tous formats)
                 string[] musicFiles = Directory.GetFiles(musicFolderPath, "*.*")
-                    .Where(file => file.EndsWith(".mp3") || file.EndsWith(".wav") || file.EndsWith(".ogg") || file.EndsWith(".flac"))
+                    .Where(file => file.EndsWith(".mp3"))
                     .ToArray();
 
                 if (musicFiles.Length == 0)

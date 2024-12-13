@@ -3,20 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\py85yge\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\m\u00E9diaplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\py85yge\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\py85yge\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\brokermqtt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\brokermqtt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\py85yge\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\envelopes\\enveloppedemandecatalogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\envelopes\\enveloppedemandecatalogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\py85yge\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\envelopes\\enveloppeenvoiecatalogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\envelopes\\enveloppeenvoiecatalogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\py85yge\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\py85yge\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\manager\\musicmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\manager\\musicmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\py85yge\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\genericenvelope.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\genericenvelope.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\py85yge\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\models\\mediadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\models\\mediadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\m\u00E9diaplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\py85yge\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,17 +54,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Form1.cs",
               "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Form1.cs",
               "ToolTip": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Form1.cs",
               "RelativeToolTip": "M\u00E9diaPlayer\\Form1.cs",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAcwGAAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAcwO4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-15T14:28:18.237Z",
               "IsPinned": true,
@@ -52,13 +72,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Program.cs",
               "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Program.cs",
               "ToolTip": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Program.cs",
               "RelativeToolTip": "M\u00E9diaPlayer\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAIwFsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-22T11:51:35.906Z",
               "IsPinned": true,
@@ -66,7 +86,72 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BrokerMQTT.cs",
+              "DocumentMoniker": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\BrokerMQTT.cs",
+              "RelativeDocumentMoniker": "M\u00E9diaPlayer\\BrokerMQTT.cs",
+              "ToolTip": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\BrokerMQTT.cs",
+              "RelativeToolTip": "M\u00E9diaPlayer\\BrokerMQTT.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T14:07:39.019Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EnveloppeDemandeCatalogue.cs",
+              "DocumentMoniker": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Envelopes\\EnveloppeDemandeCatalogue.cs",
+              "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Envelopes\\EnveloppeDemandeCatalogue.cs",
+              "ToolTip": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Envelopes\\EnveloppeDemandeCatalogue.cs",
+              "RelativeToolTip": "M\u00E9diaPlayer\\Envelopes\\EnveloppeDemandeCatalogue.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T13:45:41.552Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "EnveloppeEnvoieCatalogue.cs",
+              "DocumentMoniker": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Envelopes\\EnveloppeEnvoieCatalogue.cs",
+              "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Envelopes\\EnveloppeEnvoieCatalogue.cs",
+              "ToolTip": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Envelopes\\EnveloppeEnvoieCatalogue.cs",
+              "RelativeToolTip": "M\u00E9diaPlayer\\Envelopes\\EnveloppeEnvoieCatalogue.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T13:45:25.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GenericEnvelope.cs",
+              "DocumentMoniker": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\GenericEnvelope.cs",
+              "RelativeDocumentMoniker": "M\u00E9diaPlayer\\GenericEnvelope.cs",
+              "ToolTip": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\GenericEnvelope.cs",
+              "RelativeToolTip": "M\u00E9diaPlayer\\GenericEnvelope.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T13:44:48.929Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MediaData.cs",
+              "DocumentMoniker": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Models\\MediaData.cs",
+              "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Models\\MediaData.cs",
+              "ToolTip": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Models\\MediaData.cs",
+              "RelativeToolTip": "M\u00E9diaPlayer\\Models\\MediaData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T13:44:27.883Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "MusicManager.cs",
               "DocumentMoniker": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Manager\\MusicManager.cs",
               "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Manager\\MusicManager.cs",
@@ -79,7 +164,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "ISerializable.cs",
               "DocumentMoniker": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\interface\\ISerializable.cs",
               "RelativeDocumentMoniker": "M\u00E9diaPlayer\\interface\\ISerializable.cs",
@@ -92,7 +177,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Form1.Designer.cs",
@@ -105,7 +190,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "Form1.cs [Conception]",
               "DocumentMoniker": "C:\\Users\\py85yge\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Form1.cs",
               "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Form1.cs",

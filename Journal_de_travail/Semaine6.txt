@@ -3,4 +3,4 @@
 -Recupere les musiques des autres et affiches dans la lsite media des autres(100min)
 -Commencer La serialization (20min)
 -80% du projet avec le prof(10min)
- 
+-Commencer a refactoriser le projet(40min)
