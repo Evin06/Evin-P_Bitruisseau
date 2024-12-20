@@ -3,3 +3,4 @@
 - Serialize et Deserialize (35min)
 - Faire les messages Types et faires demande ou réponse en fonction de la type donc demander un catalogue et envoyer un catalogue (70min)
 - revoir les catalogue et afficher dans la liste(10min)
+- Remplir le journal de travail(5min)
