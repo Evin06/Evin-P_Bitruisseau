@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MédiaPlayer.Envelopes
+namespace MédiaPlayer.Models
 {
-    internal class EnveloppeDemandeCatalogue
+    internal class MessageType
     {
     }
 }

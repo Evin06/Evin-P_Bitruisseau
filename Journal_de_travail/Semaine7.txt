@@ -1,1 +1,2 @@
 - retour note T1 (15min)
+- essayer de refactor FAIL (50min)

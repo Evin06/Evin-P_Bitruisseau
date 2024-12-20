@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MédiaPlayer.Envelopes
 {
-    internal class EnveloppeEnvoieFichier
+    internal class SendMusic
     {
     }
 }
