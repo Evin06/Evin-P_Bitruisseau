@@ -43,15 +43,7 @@
             label1.Size = new Size(194, 37);
             label1.TabIndex = 3;
             label1.Text = "MEDIA PLAYER";
-            // 
-            // buttonSend
-            // 
-            buttonSend.Location = new Point(525, 375);
-            buttonSend.Name = "buttonSend";
-            buttonSend.Size = new Size(81, 22);
-            buttonSend.TabIndex = 2;
-            buttonSend.Text = "Send";
-            buttonSend.Click += buttonSend_Click;
+
             // 
             // listBox1
             // 

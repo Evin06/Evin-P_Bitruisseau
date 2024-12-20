@@ -11,14 +11,13 @@ using System.Collections.Generic;
 using MédiaPlayer.Models;
 using MédiaPlayer.Envelopes;
 using EnvelopeTypes = MédiaPlayer.Envelopes;
-using ModelTypes = MédiaPlayer.Models;
 
 namespace MédiaPlayer
 {
     public partial class Form1 : Form
     {
         private IMqttClient mqttClient;
-        private static List<Music> receivedMusicList = new List<Music>(); 
+        private static List<Music> receivedMusicList = new List<Music>();
 
         public Form1()
         {
@@ -75,15 +74,15 @@ namespace MédiaPlayer
 
                 switch (envelope.MessageType)
                 {
-                    case EnvelopeTypes.MessageType.DEMANDE_CATALOGUE: 
+                    case EnvelopeTypes.MessageType.DEMANDE_CATALOGUE:
                         await RespondToCatalogRequest();
                         break;
 
-                    case EnvelopeTypes.MessageType.ENVOIE_CATALOGUE: 
+                    case EnvelopeTypes.MessageType.ENVOIE_CATALOGUE:
                         ProcessReceivedCatalog(envelope);
                         break;
 
-                    case EnvelopeTypes.MessageType.ENVOIE_FICHIER: 
+                    case EnvelopeTypes.MessageType.ENVOIE_FICHIER:
                         ProcessReceivedMusic(envelope);
                         break;
 
@@ -117,17 +116,53 @@ namespace MédiaPlayer
 
         private void ProcessReceivedCatalog(GenericEnvelope envelope)
         {
+            // Désérialiser le contenu du champ EnveloppeJson
             var receivedCatalog = JsonSerializer.Deserialize<SendCatalog>(envelope.EnveloppeJson);
-            foreach (var media in receivedCatalog.Content)
+
+            if (receivedCatalog?.Content != null)
             {
-                receivedMusicList.Add(new Music
+                foreach (var media in receivedCatalog.Content)
                 {
-                    Name = media.FileName,
-                    Duration = media.FileDuration,
-                    Extension = media.FileType
-                });
+                    receivedMusicList.Add(new Music
+                    {
+                        Name = media.FileName,
+                        Duration = media.FileDuration,
+                        Extension = media.FileType
+                    });
+                }
+
+                // Mettre à jour la ListBox avec les musiques reçues
+                UpdateListBoxWithReceivedMusic();
+                MessageBox.Show("Catalogue reçu et ajouté à la liste !");
             }
-            MessageBox.Show("Catalogue reçu et ajouté à la liste !");
+            else
+            {
+                MessageBox.Show("Le catalogue reçu est vide ou invalide.");
+            }
+        }
+
+
+        private void UpdateListBoxWithReceivedMusic()
+        {
+            if (listBox1.InvokeRequired)
+            {
+                listBox1.Invoke(new Action(UpdateListBoxWithReceivedMusic));
+            }
+            else
+            {
+                listBox1.Items.Clear();
+
+                if (receivedMusicList.Count == 0)
+                {
+                    listBox1.Items.Add("Aucune musique reçue.");
+                    return;
+                }
+
+                foreach (var music in receivedMusicList)
+                {
+                    listBox1.Items.Add(music.GetFormattedDetails());
+                }
+            }
         }
 
         private void ProcessReceivedMusic(GenericEnvelope envelope)
@@ -201,6 +236,7 @@ namespace MédiaPlayer
                 listBox1.Items.Add(music.GetFormattedDetails());
             }
         }
+
         private void buttonMesMedias_Click(object sender, EventArgs e)
         {
             LoadMusicFiles();
@@ -216,7 +252,7 @@ namespace MédiaPlayer
             var envelope = new GenericEnvelope
             {
                 SenderId = mqttClient.Options.ClientId,
-                MessageType = EnvelopeTypes.MessageType.DEMANDE_CATALOGUE, 
+                MessageType = EnvelopeTypes.MessageType.DEMANDE_CATALOGUE,
                 EnveloppeJson = askCatalog.ToJson()
             };
 
