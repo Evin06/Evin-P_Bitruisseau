@@ -3,11 +3,12 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using MQTTnet;
 using MQTTnet.Client;
-using MQTTnet.Protocol;
 using MédiaPlayer.Models;
+using System.Collections.Generic;
+using MédiaPlayer.Envelopes;
+using System.Text.Json;
 
 namespace MédiaPlayer
 {
@@ -26,10 +27,7 @@ namespace MédiaPlayer
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            // Initialize MQTT client
             await InitializeMqttClient();
-
-            // Run the application
             Application.Run(new Form1());
         }
 
@@ -47,20 +45,17 @@ namespace MédiaPlayer
                     .WithCleanSession()
                     .Build();
 
-                // Connect to MQTT broker
                 var connectResult = await mqttClient.ConnectAsync(options);
 
-                if (connectResult.ResultCode == MqttClientConnectResultCode.Success)
+                if (connectResult.ResultCode == MQTTnet.Client.MqttClientConnectResultCode.Success)
                 {
                     MessageBox.Show("Connected to MQTT broker successfully.");
 
-                    // Subscribe to the topic
                     await mqttClient.SubscribeAsync(new MqttTopicFilterBuilder()
                         .WithTopic(topic)
-                        .WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce)
+                        .WithQualityOfServiceLevel(MQTTnet.Protocol.MqttQualityOfServiceLevel.AtLeastOnce)
                         .Build());
 
-                    // Register callback for received messages
                     mqttClient.ApplicationMessageReceivedAsync += HandleReceivedMessage;
                 }
                 else
@@ -78,19 +73,22 @@ namespace MédiaPlayer
         {
             try
             {
-                // Decode the message payload
                 string receivedMessage = Encoding.UTF8.GetString(e.ApplicationMessage.PayloadSegment);
+                var envelope = JsonSerializer.Deserialize<GenericEnvelope>(receivedMessage);
 
-                // Check if the message contains "HELLO"
-                if (receivedMessage.Contains("HELLO"))
+                if (envelope.SenderId == mqttClient.Options.ClientId)
                 {
-                    // Respond with the serialized music list
-                    string musicListJson = GetSerializedMusicList();
-                    await SendMqttMessage(musicListJson);
+                    return;
+                }
+
+                // Si on reçoit un message de type 1 (DEMANDE_CATALOGUE)
+                if (envelope.MessageType == MessageType.DEMANDE_CATALOGUE)
+                {
+                    await RespondToCatalogRequest();
                 }
                 else
                 {
-                    Console.WriteLine($"Ignored message: {receivedMessage}");
+                    Console.WriteLine($"Unhandled message type: {envelope.MessageType}");
                 }
             }
             catch (Exception ex)
@@ -99,49 +97,72 @@ namespace MédiaPlayer
             }
         }
 
-        private static async Task SendMqttMessage(string message)
+        private static async Task RespondToCatalogRequest()
         {
             try
             {
-                var mqttMessage = new MqttApplicationMessageBuilder()
-                    .WithTopic(topic)
-                    .WithPayload(message)
-                    .WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce)
-                    .WithRetainFlag(false)
-                    .Build();
+                // Créez le catalogue local
+                var catalog = new SendCatalog
+                {
+                    Content = LoadLocalMediaData()
+                };
 
-                await mqttClient.PublishAsync(mqttMessage);
+                // Préparez un message enveloppe de type 0 (ENVOIE_CATALOGUE)
+                var envelope = new GenericEnvelope
+                {
+                    SenderId = mqttClient.Options.ClientId,
+                    MessageType = MessageType.ENVOIE_CATALOGUE, // Type 0
+                    EnveloppeJson = JsonSerializer.Serialize(catalog)
+                };
+
+                // Sérialisez et envoyez le message
+                string message = JsonSerializer.Serialize(envelope);
+                await SendMqttMessage(message);
+
+                Console.WriteLine("Catalogue envoyé en réponse au DEMANDE_CATALOGUE !");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error sending MQTT message: {ex.Message}");
+                MessageBox.Show($"Erreur lors de l'envoi du catalogue : {ex.Message}");
             }
         }
 
-        private static string GetSerializedMusicList()
+        private static async Task SendMqttMessage(string message)
+        {
+            var mqttMessage = new MQTTnet.MqttApplicationMessageBuilder()
+                .WithTopic(topic)
+                .WithPayload(message)
+                .WithQualityOfServiceLevel(MQTTnet.Protocol.MqttQualityOfServiceLevel.AtLeastOnce)
+                .WithRetainFlag(false)
+                .Build();
+
+            await mqttClient.PublishAsync(mqttMessage);
+        }
+
+        private static List<MediaData> LoadLocalMediaData()
         {
             string musicFolderPath = @"..\..\..\Music";
+            var mediaList = new List<MediaData>();
 
-            try
+            if (Directory.Exists(musicFolderPath))
             {
-                // Retrieve all mp3 files
-                string[] musicFiles = Directory.GetFiles(musicFolderPath, "*.mp3");
+                var files = Directory.GetFiles(musicFolderPath, "*.mp3");
 
-                // Create a list of Music objects
-                var musicList = musicFiles.Select(file => new Music
+                foreach (var file in files)
                 {
-                    Name = Path.GetFileNameWithoutExtension(file),
-                    Extension = Path.GetExtension(file),
-                    Duration = "Unknown" // Optionally extract duration using TagLib
-                }).ToList();
+                    var fileInfo = new FileInfo(file);
+                    mediaList.Add(new MediaData
+                    {
+                        FileName = Path.GetFileNameWithoutExtension(file),
+                        FileArtist = "Unknown Artist",
+                        FileType = fileInfo.Extension,
+                        FileSize = fileInfo.Length,
+                        FileDuration = "Unknown"
+                    });
+                }
+            }
 
-                // Serialize the list to JSON
-                return MusicManager.SerializeMusicList(musicList);
-            }
-            catch (Exception ex)
-            {
-                return $"Error retrieving music files: {ex.Message}";
-            }
+            return mediaList;
         }
     }
 }

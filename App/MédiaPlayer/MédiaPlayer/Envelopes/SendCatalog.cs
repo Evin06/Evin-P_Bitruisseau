@@ -1,12 +1,17 @@
-﻿using System;
+﻿// SendCatalog.cs
+using MédiaPlayer.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace MédiaPlayer.Envelopes
 {
-    internal class SendCatalog
+    public class SendCatalog
     {
+        public List<MediaData> Content { get; set; }
+
+        public string ToJson()
+        {
+            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+        }
     }
 }

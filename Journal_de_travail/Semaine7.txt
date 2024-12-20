@@ -1,3 +1,4 @@
 - retour note T1 (15min)
 - essayer de refactor FAIL (50min)
 - Serialize et Deserialize (35min)
+- Faire les messages Types et faires demande ou réponse en fonction de la type donc demander un catalogue et envoyer un catalogue (70min)

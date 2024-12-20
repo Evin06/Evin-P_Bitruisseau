@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// SendMusic.cs
+using System.Text.Json;
 
 namespace MédiaPlayer.Envelopes
 {
-    internal class SendMusic
+    public class SendMusic
     {
+        public string Content { get; set; }
+
+        public string ToJson()
+        {
+            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+        }
     }
 }
+    
