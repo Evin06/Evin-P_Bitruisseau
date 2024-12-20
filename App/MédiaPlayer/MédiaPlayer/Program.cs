@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using MQTTnet;
 using MQTTnet.Client;
 using MQTTnet.Protocol;
-
+using MédiaPlayer.Models;
 
 namespace MédiaPlayer
 {
@@ -60,7 +60,6 @@ namespace MédiaPlayer
                         .WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce)
                         .Build());
 
-
                     // Register callback for received messages
                     mqttClient.ApplicationMessageReceivedAsync += HandleReceivedMessage;
                 }
@@ -82,14 +81,12 @@ namespace MédiaPlayer
                 // Decode the message payload
                 string receivedMessage = Encoding.UTF8.GetString(e.ApplicationMessage.PayloadSegment);
 
-                // Check if the message contains exactly "hello"
+                // Check if the message contains "HELLO"
                 if (receivedMessage.Contains("HELLO"))
                 {
-
-                    // Respond with the music list
-                    string musicList = GetMusicList();
-                    await SendMqttMessage(musicList);
-
+                    // Respond with the serialized music list
+                    string musicListJson = GetSerializedMusicList();
+                    await SendMqttMessage(musicListJson);
                 }
                 else
                 {
@@ -121,21 +118,25 @@ namespace MédiaPlayer
             }
         }
 
-        private static string GetMusicList()
+        private static string GetSerializedMusicList()
         {
             string musicFolderPath = @"..\..\..\Music";
+
             try
             {
-                // Retrieve all mp3 files from the specified directory
+                // Retrieve all mp3 files
                 string[] musicFiles = Directory.GetFiles(musicFolderPath, "*.mp3");
 
-                // Get only the file names
-                var fileNames = musicFiles.Select(Path.GetFileName).ToArray();
+                // Create a list of Music objects
+                var musicList = musicFiles.Select(file => new Music
+                {
+                    Name = Path.GetFileNameWithoutExtension(file),
+                    Extension = Path.GetExtension(file),
+                    Duration = "Unknown" // Optionally extract duration using TagLib
+                }).ToList();
 
-                // Join the file names into a single string separated by commas
-                return fileNames.Length > 0
-                    ? "Available music: " + string.Join(", ", fileNames)
-                    : "No music files found.";
+                // Serialize the list to JSON
+                return MusicManager.SerializeMusicList(musicList);
             }
             catch (Exception ex)
             {
