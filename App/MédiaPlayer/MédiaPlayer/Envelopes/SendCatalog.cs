@@ -7,7 +7,10 @@ namespace MédiaPlayer.Envelopes
 {
     public class SendCatalog
     {
-        public List<MediaData> Content { get; set; }
+       
+            public List<MediaData> Content { get; set; }
+        
+
 
         public string ToJson()
         {

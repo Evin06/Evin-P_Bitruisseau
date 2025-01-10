@@ -17,7 +17,7 @@ namespace MédiaPlayer
         private static IMqttClient mqttClient;
         private const string broker = "blue.section-inf.ch";
         private const int port = 1883;
-        private const string topic = "test";
+        private const string topic = "tutu";
         private const string username = "ict";
         private const string password = "321";
 

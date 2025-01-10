@@ -1,5 +1,4 @@
-﻿// GenericEnvelope.cs
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace MédiaPlayer.Envelopes
 {

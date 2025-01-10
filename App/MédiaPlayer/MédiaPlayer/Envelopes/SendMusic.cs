@@ -1,11 +1,11 @@
-﻿// SendMusic.cs
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace MédiaPlayer.Envelopes
 {
     public class SendMusic
     {
         public string Content { get; set; }
+        public string FileName { get; set; }
 
         public string ToJson()
         {
@@ -13,4 +13,3 @@ namespace MédiaPlayer.Envelopes
         }
     }
 }
-    

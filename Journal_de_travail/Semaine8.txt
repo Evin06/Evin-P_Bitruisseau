@@ -1,1 +1,2 @@
--Feedback module + Shortcut projet (25MIN)
+-Feedback module + Shortcut projet (25min)
+- Export et import de fichier et essayer de corrige la réception de catalogue(160min)

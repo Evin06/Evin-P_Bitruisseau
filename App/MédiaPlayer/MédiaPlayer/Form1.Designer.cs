@@ -77,17 +77,7 @@
             buttonMediaAutres.Text = "Média des autres";
             buttonMediaAutres.UseVisualStyleBackColor = true;
             buttonMediaAutres.Click += buttonMediaAutres_Click;
-            // 
-            // buttonReglage
-            // 
-            buttonReglage.Font = new Font("Segoe UI", 12F);
-            buttonReglage.Location = new Point(60, 241);
-            buttonReglage.Name = "buttonReglage";
-            buttonReglage.Size = new Size(120, 30);
-            buttonReglage.TabIndex = 6;
-            buttonReglage.Text = "Réglage";
-            buttonReglage.UseVisualStyleBackColor = true;
-            buttonReglage.Click += buttonReglage_Click;
+
             // 
             // Form1
             // 
