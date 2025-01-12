@@ -1,158 +1,97 @@
 using System;
-using System.IO;
-using System.Linq;
+using System.Collections.Generic;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MQTTnet;
 using MQTTnet.Client;
-using System.Collections.Generic;
-using MédiaPlayer.Models;
 using MédiaPlayer.Envelopes;
+using MédiaPlayer.Models;
 
 namespace MédiaPlayer
 {
     public partial class Form1 : Form
     {
         private IMqttClient mqttClient;
-        private static List<Music> receivedMusicList = new List<Music>();
+        private CatalogManager catalogManager;
+        private FileManager fileManager;
+        private List<Music> receivedMusicList = new List<Music>();
 
         public Form1()
         {
             InitializeComponent();
-            InitializeMqttClient();
+            InitializeAsync();
         }
 
-        private async void InitializeMqttClient()
+        private async void InitializeAsync()
         {
-            try
+            mqttClient = await MQTTConnectionManager.GetClientAsync();
+            if (mqttClient != null)
             {
-                var factory = new MqttFactory();
-                mqttClient = factory.CreateMqttClient();
-
-                var options = new MqttClientOptionsBuilder()
-                    .WithTcpServer("blue.section-inf.ch", 1883)
-                    .WithCredentials("ict", "321")
-                    .WithClientId(Guid.NewGuid().ToString())
-                    .WithCleanSession()
-                    .Build();
-
-                await mqttClient.ConnectAsync(options);
-                MessageBox.Show("Connecté au serveur MQTT.");
-
-                await mqttClient.SubscribeAsync(new MqttTopicFilterBuilder()
-                    .WithTopic("tutu")
-                    .WithQualityOfServiceLevel(MQTTnet.Protocol.MqttQualityOfServiceLevel.AtLeastOnce)
-                    .Build());
-
+                catalogManager = new CatalogManager(mqttClient);
+                fileManager = new FileManager(mqttClient);
                 mqttClient.ApplicationMessageReceivedAsync += HandleReceivedMessage;
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Erreur lors de la connexion : {ex.Message}");
+                MessageBox.Show("Failed to initialize MQTT connection.");
             }
         }
 
         private async Task HandleReceivedMessage(MqttApplicationMessageReceivedEventArgs e)
         {
-            try
+            string receivedMessage = Encoding.UTF8.GetString(e.ApplicationMessage.Payload);
+            var envelope = JsonSerializer.Deserialize<GenericEnvelope>(receivedMessage);
+            if (envelope == null || envelope.SenderId == mqttClient.Options.ClientId) return;
+
+            switch (envelope.MessageType)
             {
-                string receivedMessage = Encoding.UTF8.GetString(e.ApplicationMessage.Payload);
-                var envelope = JsonSerializer.Deserialize<GenericEnvelope>(receivedMessage);
-
-                if (envelope.SenderId == mqttClient.Options.ClientId) return;
-
-                switch (envelope.MessageType)
-                {
-                    case MessageType.DEMANDE_CATALOGUE:
-                        await RespondToCatalogRequest();
-                        break;
-
-                    case MessageType.ENVOIE_CATALOGUE:
-                        ProcessReceivedCatalog(envelope);
-                        break;
-
-                    case MessageType.DEMANDE_FICHIER:
-                        await SendRequestedFile(envelope);
-                        break;
-
-                    case MessageType.ENVOIE_FICHIER:
-                        ProcessReceivedMusicFile(envelope);
-                        break;
-
-                    default:
-                        Console.WriteLine("Message non reconnu.");
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erreur lors du traitement du message : {ex.Message}");
+                case MessageType.DEMANDE_CATALOGUE: // Assurez-vous que cela correspond à 1 selon votre énumération
+                    await SendMyCatalog();
+                    break;
+                case MessageType.ENVOIE_CATALOGUE:
+                    ProcessReceivedCatalog(envelope);
+                    break;
+                case MessageType.DEMANDE_FICHIER:
+                    await fileManager.SendFile("tutu", envelope.EnveloppeJson);
+                    break;
+                case MessageType.ENVOIE_FICHIER:
+                    ProcessReceivedMusicFile(envelope);
+                    break;
+                default:
+                    Console.WriteLine("Unhandled message type.");
+                    break;
             }
         }
 
-        private async Task RespondToCatalogRequest()
+        private async Task SendMyCatalog()
         {
-            try
-            {
-                var catalog = new SendCatalog
-                {
-                    Content = LoadLocalMediaData()
-                };
-
-                if (!catalog.Content.Any())
-                {
-                    MessageBox.Show("Aucun média local à envoyer.");
-                    return;
-                }
-
-                var responseEnvelope = new GenericEnvelope
-                {
-                    SenderId = mqttClient.Options.ClientId,
-                    MessageType = MessageType.ENVOIE_CATALOGUE,
-                    EnveloppeJson = JsonSerializer.Serialize(catalog)
-                };
-
-                await SendData("tutu", JsonSerializer.Serialize(responseEnvelope));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erreur lors de l'envoi du catalogue : {ex.Message}");
-            }
+            await catalogManager.SendCatalog("tutu");
         }
+
+
 
         private void ProcessReceivedCatalog(GenericEnvelope envelope)
         {
             try
             {
-                // Désérialisation de la réponse JSON
                 var receivedCatalog = JsonSerializer.Deserialize<SendCatalog>(envelope.EnveloppeJson);
-
-                // Vérification que la liste "Content" contient des éléments
-                if (receivedCatalog?.Content != null && receivedCatalog.Content.Any())
+                if (receivedCatalog?.Content != null)
                 {
-                    // Vider la liste existante avant d'ajouter les nouveaux éléments
                     receivedMusicList.Clear();
-
-                    // Parcourir chaque média dans le contenu reçu
                     foreach (var media in receivedCatalog.Content)
                     {
-                        // Met à jour avec les bonnes propriétés du JSON
                         receivedMusicList.Add(new Music
                         {
-                            Name = media.FileName,            // Le titre du fichier
-                            Duration = media.FileDuration,  // Durée du fichier
-                            Extension = media.FileType // Extension du fichier
+                            Name = media.FileName,
+                            Artist = media.FileArtist,
+                            FileType = media.FileType,
+                            Duration = media.FileDuration,
+                            Size = media.FileSize
                         });
                     }
-
-                    // Mise à jour de l'affichage dans la ListBox
                     UpdateListBoxWithReceivedMusic();
-                }
-                else
-                {
-                    MessageBox.Show("Le catalogue reçu est vide ou invalide.");
                 }
             }
             catch (Exception ex)
@@ -163,137 +102,75 @@ namespace MédiaPlayer
 
         private void UpdateListBoxWithReceivedMusic()
         {
-            if (listBox1.InvokeRequired)
+            if (this.InvokeRequired)
             {
-                listBox1.Invoke(new Action(UpdateListBoxWithReceivedMusic));
+                this.Invoke(new MethodInvoker(UpdateListBoxWithReceivedMusic));
             }
             else
             {
                 listBox1.Items.Clear();
-
-                // Ajouter chaque fichier dans la ListBox
                 foreach (var music in receivedMusicList)
                 {
-                    listBox1.Items.Add($"{music.Name}{music.Extension} | Durée : {music.Duration}");
+                    listBox1.Items.Add($"{music.Name} | {music.Artist} | {music.FileType} | {music.Size} bytes | Durée : {music.Duration}");
                 }
             }
         }
 
-        private async Task SendRequestedFile(GenericEnvelope envelope)
-        {
-            try
-            {
-                var fileRequest = JsonSerializer.Deserialize<FileRequest>(envelope.EnveloppeJson);
 
-                if (fileRequest == null || string.IsNullOrWhiteSpace(fileRequest.FileName))
-                {
-                    MessageBox.Show("Demande de fichier invalide.");
-                    return;
-                }
 
-                string musicFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Music");
-                string filePath = Path.Combine(musicFolderPath, fileRequest.FileName);
-
-                if (!File.Exists(filePath))
-                {
-                    MessageBox.Show($"Le fichier demandé n'existe pas : {fileRequest.FileName}");
-                    return;
-                }
-
-                string fileBase64 = Convert.ToBase64String(File.ReadAllBytes(filePath));
-
-                var sendMusic = new SendMusic
-                {
-                    FileName = fileRequest.FileName,
-                    Content = fileBase64
-                };
-
-                var responseEnvelope = new GenericEnvelope
-                {
-                    SenderId = mqttClient.Options.ClientId,
-                    MessageType = MessageType.ENVOIE_FICHIER,
-                    EnveloppeJson = JsonSerializer.Serialize(sendMusic)
-                };
-
-                await SendData("tutu", JsonSerializer.Serialize(responseEnvelope));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erreur lors de l'envoi du fichier : {ex.Message}");
-            }
-        }
 
         private void ProcessReceivedMusicFile(GenericEnvelope envelope)
         {
-            try
+            var receivedMusic = JsonSerializer.Deserialize<SendMusic>(envelope.EnveloppeJson);
+            if (receivedMusic != null)
             {
-                var receivedMusic = JsonSerializer.Deserialize<SendMusic>(envelope.EnveloppeJson);
-
-                if (receivedMusic != null && !string.IsNullOrWhiteSpace(receivedMusic.Content))
-                {
-                    string musicFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Music");
-                    Directory.CreateDirectory(musicFolderPath);
-
-                    string filePath = Path.Combine(musicFolderPath, receivedMusic.FileName);
-                    File.WriteAllBytes(filePath, Convert.FromBase64String(receivedMusic.Content));
-
-                    MessageBox.Show($"Fichier téléchargé : {receivedMusic.FileName}");
-
-                    LoadMusicFiles();
-                }
-                else
-                {
-                    MessageBox.Show("Le fichier reçu est invalide.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erreur lors de la réception du fichier : {ex.Message}");
+                MessageBox.Show($"Fichier téléchargé : {receivedMusic.FileName}");
+                // Additional logic to handle the downloaded file
             }
         }
 
-        private async Task SendData(string topic, string data)
+        private void buttonMesMedias_Click(object sender, EventArgs e)
         {
+            LoadMusicFiles();
+        }
+
+        private async void buttonMediaAutres_Click(object sender, EventArgs e)
+        {
+            var askCatalog = new GenericEnvelope
+            {
+                SenderId = mqttClient.Options.ClientId,
+                MessageType = MessageType.DEMANDE_CATALOGUE,
+                EnveloppeJson = JsonSerializer.Serialize(new { Content = "Demande de catalogue" })
+            };
+
+            await catalogManager.SendData("tutu", JsonSerializer.Serialize(askCatalog));
+            MessageBox.Show("Demande de catalogue envoyée !");
+        }
+
+        private async void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex < 0 || listBox1.SelectedIndex >= receivedMusicList.Count) return;
+
+            var selectedMusic = receivedMusicList[listBox1.SelectedIndex];
+            var requestEnvelope = new GenericEnvelope
+            {
+                SenderId = mqttClient.Options.ClientId,
+                MessageType = MessageType.DEMANDE_FICHIER,
+                EnveloppeJson = JsonSerializer.Serialize(new FileRequest
+                {
+                    FileName = $"{selectedMusic.Name}{selectedMusic.Extension}"
+                })
+            };
+
             try
             {
-                var message = new MQTTnet.MqttApplicationMessageBuilder()
-                    .WithTopic(topic)
-                    .WithPayload(data)
-                    .WithQualityOfServiceLevel(MQTTnet.Protocol.MqttQualityOfServiceLevel.AtLeastOnce)
-                    .WithRetainFlag(false)
-                    .Build();
-
-                await mqttClient.PublishAsync(message);
+                await fileManager.SendData("tutu", JsonSerializer.Serialize(requestEnvelope));
+                MessageBox.Show($"Demande envoyée pour : {selectedMusic.Name}{selectedMusic.Extension}");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erreur lors de l'envoi des données : {ex.Message}");
+                MessageBox.Show($"Erreur lors de l'envoi de la demande : {ex.Message}");
             }
-        }
-
-        private List<MediaData> LoadLocalMediaData()
-        {
-            string musicFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Music");
-            var mediaList = new List<MediaData>();
-
-            if (Directory.Exists(musicFolderPath))
-            {
-                // Utilisation du filtre *.* pour récupérer tous les types de fichiers
-                var files = Directory.GetFiles(musicFolderPath, "*.*");
-
-                foreach (var file in files)
-                {
-                    var fileInfo = new FileInfo(file);
-                    mediaList.Add(new MediaData
-                    {
-                        FileName = Path.GetFileName(file),
-                        FileType = fileInfo.Extension,  // Utilisation de l'extension pour connaître le type
-                        FileDuration = "Durée inconnue"  // Durée laissée comme inconnue
-                    });
-                }
-            }
-
-            return mediaList;
         }
 
         private void LoadMusicFiles()
@@ -320,50 +197,6 @@ namespace MédiaPlayer
                 };
 
                 listBox1.Items.Add($"{music.Name}{music.Extension} | Durée : {music.Duration}");
-            }
-        }
-
-        private void buttonMesMedias_Click(object sender, EventArgs e)
-        {
-            LoadMusicFiles();
-        }
-
-        private async void buttonMediaAutres_Click(object sender, EventArgs e)
-        {
-            var askCatalog = new GenericEnvelope
-            {
-                SenderId = mqttClient.Options.ClientId,
-                MessageType = MessageType.DEMANDE_CATALOGUE,
-                EnveloppeJson = JsonSerializer.Serialize(new { Content = "Demande de catalogue" })
-            };
-
-            await SendData("tutu", JsonSerializer.Serialize(askCatalog));
-            MessageBox.Show("Demande de catalogue envoyée !");
-        }
-
-        private async void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listBox1.SelectedIndex < 0 || listBox1.SelectedIndex >= receivedMusicList.Count) return;
-
-            var selectedMusic = receivedMusicList[listBox1.SelectedIndex];
-            var requestEnvelope = new GenericEnvelope
-            {
-                SenderId = mqttClient.Options.ClientId,
-                MessageType = MessageType.DEMANDE_FICHIER,
-                EnveloppeJson = JsonSerializer.Serialize(new FileRequest
-                {
-                    FileName = $"{selectedMusic.Name}{selectedMusic.Extension}"
-                })
-            };
-
-            try
-            {
-                await SendData("tutu", JsonSerializer.Serialize(requestEnvelope));
-                MessageBox.Show($"Demande envoyée pour : {selectedMusic.Name}{selectedMusic.Extension}");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erreur lors de l'envoi de la demande : {ex.Message}");
             }
         }
     }
