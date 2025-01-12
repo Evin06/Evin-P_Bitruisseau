@@ -1,11 +1,11 @@
+using MQTTnet;
+using MQTTnet.Client;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MQTTnet;
-using MQTTnet.Client;
 using MédiaPlayer.Envelopes;
 using MédiaPlayer.Models;
 
@@ -47,14 +47,14 @@ namespace MédiaPlayer
 
             switch (envelope.MessageType)
             {
-                case MessageType.DEMANDE_CATALOGUE: // Assurez-vous que cela correspond à 1 selon votre énumération
+                case MessageType.DEMANDE_CATALOGUE:
                     await SendMyCatalog();
                     break;
                 case MessageType.ENVOIE_CATALOGUE:
                     ProcessReceivedCatalog(envelope);
                     break;
                 case MessageType.DEMANDE_FICHIER:
-                    await fileManager.SendFile("tutu", envelope.EnveloppeJson);
+                    await fileManager.SendFile("tutu", envelope);
                     break;
                 case MessageType.ENVOIE_FICHIER:
                     ProcessReceivedMusicFile(envelope);
@@ -65,12 +65,11 @@ namespace MédiaPlayer
             }
         }
 
+
         private async Task SendMyCatalog()
         {
             await catalogManager.SendCatalog("tutu");
         }
-
-
 
         private void ProcessReceivedCatalog(GenericEnvelope envelope)
         {
@@ -80,23 +79,21 @@ namespace MédiaPlayer
                 if (receivedCatalog?.Content != null)
                 {
                     receivedMusicList.Clear();
-                    foreach (var media in receivedCatalog.Content)
+                    receivedMusicList.AddRange(receivedCatalog.Content.Select(m => new Music
                     {
-                        receivedMusicList.Add(new Music
-                        {
-                            Name = media.FileName,
-                            Artist = media.FileArtist,
-                            FileType = media.FileType,
-                            Duration = media.FileDuration,
-                            Size = media.FileSize
-                        });
-                    }
+                        Name = m.FileName,
+                        Artist = m.FileArtist,
+                        FileType = m.FileType,
+                        Duration = m.FileDuration,
+                        Size = m.FileSize
+                    }));
+
                     UpdateListBoxWithReceivedMusic();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erreur lors du traitement du catalogue : {ex.Message}");
+                MessageBox.Show($"Error processing received catalog: {ex.Message}");
             }
         }
 
@@ -111,23 +108,29 @@ namespace MédiaPlayer
                 listBox1.Items.Clear();
                 foreach (var music in receivedMusicList)
                 {
-                    listBox1.Items.Add($"{music.Name} | {music.Artist} | {music.FileType} | {music.Size} bytes | Durée : {music.Duration}");
+                    listBox1.Items.Add($"{music.Name} | {music.Artist} | {music.FileType} | {music.Size} bytes | Duration: {music.Duration}");
                 }
             }
         }
-
-
-
 
         private void ProcessReceivedMusicFile(GenericEnvelope envelope)
         {
             var receivedMusic = JsonSerializer.Deserialize<SendMusic>(envelope.EnveloppeJson);
             if (receivedMusic != null)
             {
-                MessageBox.Show($"Fichier téléchargé : {receivedMusic.FileName}");
-                // Additional logic to handle the downloaded file
+                var filePath = Path.Combine(@"..\..\..\Music", receivedMusic.FileName);
+                try
+                {
+                    File.WriteAllBytes(filePath, Convert.FromBase64String(receivedMusic.Content));
+                    MessageBox.Show($"File downloaded and saved: {receivedMusic.FileName}", "Download Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error saving file: {ex.Message}", "File Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
+
 
         private void buttonMesMedias_Click(object sender, EventArgs e)
         {
@@ -144,7 +147,7 @@ namespace MédiaPlayer
             };
 
             await catalogManager.SendData("tutu", JsonSerializer.Serialize(askCatalog));
-            MessageBox.Show("Demande de catalogue envoyée !");
+            MessageBox.Show("Catalog request sent!");
         }
 
         private async void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -165,11 +168,11 @@ namespace MédiaPlayer
             try
             {
                 await fileManager.SendData("tutu", JsonSerializer.Serialize(requestEnvelope));
-                MessageBox.Show($"Demande envoyée pour : {selectedMusic.Name}{selectedMusic.Extension}");
+                MessageBox.Show($"Request sent for: {selectedMusic.Name}{selectedMusic.Extension}");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erreur lors de l'envoi de la demande : {ex.Message}");
+                MessageBox.Show($"Error sending file request: {ex.Message}");
             }
         }
 
@@ -181,11 +184,11 @@ namespace MédiaPlayer
 
             if (!Directory.Exists(musicFolderPath))
             {
-                listBox1.Items.Add("Le dossier 'Music' n'existe pas.");
+                listBox1.Items.Add("Music folder does not exist.");
                 return;
             }
 
-            string[] musicFiles = Directory.GetFiles(musicFolderPath, "*.*"); // Permet de charger tous les types de fichiers
+            string[] musicFiles = Directory.GetFiles(musicFolderPath, "*.*");  // Load all file types
 
             foreach (string musicFile in musicFiles)
             {
@@ -193,10 +196,10 @@ namespace MédiaPlayer
                 {
                     Name = Path.GetFileNameWithoutExtension(musicFile),
                     Extension = Path.GetExtension(musicFile),
-                    Duration = "Durée inconnue" // Vous pouvez également ajouter une méthode pour obtenir la durée des fichiers
+                    Duration = "Unknown duration"  // You could also add a method to fetch file durations
                 };
 
-                listBox1.Items.Add($"{music.Name}{music.Extension} | Durée : {music.Duration}");
+                listBox1.Items.Add($"{music.Name}{music.Extension} | Duration: {music.Duration}");
             }
         }
     }

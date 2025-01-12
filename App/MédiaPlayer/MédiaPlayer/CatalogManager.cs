@@ -30,7 +30,7 @@ namespace MédiaPlayer
             var envelope = new GenericEnvelope
             {
                 SenderId = mqttClient.Options.ClientId,
-                MessageType = MessageType.ENVOIE_CATALOGUE,  // Assurez-vous que cela correspond à 0 selon votre énumération
+                MessageType = MessageType.ENVOIE_CATALOGUE,
                 EnveloppeJson = JsonSerializer.Serialize(catalog)
             };
 
@@ -42,8 +42,6 @@ namespace MédiaPlayer
 
             await mqttClient.PublishAsync(message);
         }
-
-
 
 
         private List<MediaData> LoadLocalMediaData()

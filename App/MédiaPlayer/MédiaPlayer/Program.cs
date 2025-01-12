@@ -1,10 +1,9 @@
 using System;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MédiaPlayer
 {
-    internal static class Program
+    static class Program
     {
         [STAThread]
         static void Main()

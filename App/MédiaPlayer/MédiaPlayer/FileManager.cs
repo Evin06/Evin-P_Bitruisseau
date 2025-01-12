@@ -19,19 +19,26 @@ namespace MédiaPlayer
             this.mqttClient = mqttClient;
         }
 
-        public async Task SendFile(string topic, string fileName)
+        public async Task SendFile(string topic, GenericEnvelope requestEnvelope)
         {
-            var filePath = Path.Combine(@"..\..\..\Music", fileName);
+            var fileRequest = JsonSerializer.Deserialize<FileRequest>(requestEnvelope.EnveloppeJson);
+            if (fileRequest == null)
+            {
+                MessageBox.Show("Invalid file request.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var filePath = Path.Combine(@"..\..\..\Music", fileRequest.FileName);
             if (!File.Exists(filePath))
             {
-                MessageBox.Show($"File not found: {fileName}", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"File not found: {fileRequest.FileName}", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             var fileContent = Convert.ToBase64String(File.ReadAllBytes(filePath));
-            var sendMusic = new SendMusic { FileName = fileName, Content = fileContent };
+            var sendMusic = new SendMusic { FileName = fileRequest.FileName, Content = fileContent };
 
-            var envelope = new GenericEnvelope
+            var responseEnvelope = new GenericEnvelope
             {
                 SenderId = mqttClient.Options.ClientId,
                 MessageType = MessageType.ENVOIE_FICHIER,
@@ -40,12 +47,14 @@ namespace MédiaPlayer
 
             var message = new MqttApplicationMessageBuilder()
                 .WithTopic(topic)
-                .WithPayload(JsonSerializer.Serialize(envelope))
+                .WithPayload(JsonSerializer.Serialize(responseEnvelope))
                 .WithQualityOfServiceLevel(MQTTnet.Protocol.MqttQualityOfServiceLevel.AtLeastOnce)
                 .Build();
 
             await mqttClient.PublishAsync(message);
         }
+
+
         public async Task SendData(string topic, string data)
         {
             var message = new MqttApplicationMessageBuilder()

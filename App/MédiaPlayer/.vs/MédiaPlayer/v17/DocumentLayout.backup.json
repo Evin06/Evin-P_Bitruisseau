@@ -3,24 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\evins\\onedrive\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\catalogmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\catalogmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\evins\\onedrive\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\evins\\onedrive\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\filemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\filemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\evins\\onedrive\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\models\\mediadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\models\\mediadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\evins\\onedrive\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\catalogmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\catalogmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\evins\\onedrive\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\evins\\onedrive\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\envelopes\\sendcatalog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\envelopes\\sendcatalog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\evins\\onedrive\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\envelopes\\askmusic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\envelopes\\askmusic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\evins\\onedrive\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\mqttconnectionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\mqttconnectionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\evins\\onedrive\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\envelopes\\askcatalog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\envelopes\\askcatalog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\evins\\onedrive\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\genericenvelope.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\genericenvelope.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\evins\\onedrive\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\envelopes\\sendmusic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,24 +51,8 @@
       "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\models\\music.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\evins\\onedrive\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\filemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\filemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\evins\\onedrive\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\envelopes\\askcatalog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\envelopes\\askcatalog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\evins\\onedrive\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\genericenvelope.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\genericenvelope.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\evins\\onedrive\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\mqttconnectionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\mqttconnectionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\evins\\onedrive\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|c:\\users\\evins\\onedrive\\documents\\github\\evin-p_bitruisseau\\app\\m\u00E9diaplayer\\m\u00E9diaplayer\\envelopes\\askmusic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|solutionrelative:m\u00E9diaplayer\\envelopes\\askmusic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B2A8C1F-0E35-4F55-B685-F44758A5768D}|M\u00E9diaPlayer\\M\u00E9diaPlayer.csproj|C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\m\u00E9diaplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -74,17 +74,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Form1.cs",
               "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Form1.cs",
               "ToolTip": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Form1.cs",
               "RelativeToolTip": "M\u00E9diaPlayer\\Form1.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAYwEcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAIwIMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-15T14:28:18.237Z",
               "IsPinned": true,
@@ -92,13 +92,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Program.cs",
               "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Program.cs",
               "ToolTip": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Program.cs",
               "RelativeToolTip": "M\u00E9diaPlayer\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAIwBAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-22T11:51:35.906Z",
               "IsPinned": true,
@@ -106,13 +106,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "CatalogManager.cs",
               "DocumentMoniker": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\CatalogManager.cs",
               "RelativeDocumentMoniker": "M\u00E9diaPlayer\\CatalogManager.cs",
-              "ToolTip": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\CatalogManager.cs*",
-              "RelativeToolTip": "M\u00E9diaPlayer\\CatalogManager.cs*",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAowCwAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\CatalogManager.cs",
+              "RelativeToolTip": "M\u00E9diaPlayer\\CatalogManager.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAqwBQAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-12T14:06:49.586Z",
               "IsPinned": true,
@@ -120,42 +120,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "FileManager.cs",
               "DocumentMoniker": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\FileManager.cs",
               "RelativeDocumentMoniker": "M\u00E9diaPlayer\\FileManager.cs",
               "ToolTip": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\FileManager.cs",
               "RelativeToolTip": "M\u00E9diaPlayer\\FileManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAABSAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAcwDcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-12T14:07:18.812Z",
               "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Music.cs",
-              "DocumentMoniker": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Models\\Music.cs",
-              "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Models\\Music.cs",
-              "ToolTip": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Models\\Music.cs",
-              "RelativeToolTip": "M\u00E9diaPlayer\\Models\\Music.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-20T12:01:31.02Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SendCatalog.cs",
-              "DocumentMoniker": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Envelopes\\SendCatalog.cs",
-              "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Envelopes\\SendCatalog.cs",
-              "ToolTip": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Envelopes\\SendCatalog.cs",
-              "RelativeToolTip": "M\u00E9diaPlayer\\Envelopes\\SendCatalog.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-20T12:26:41.606Z",
               "EditorCaption": ""
             },
             {
@@ -166,66 +140,53 @@
               "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Models\\MediaData.cs",
               "ToolTip": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Models\\MediaData.cs",
               "RelativeToolTip": "M\u00E9diaPlayer\\Models\\MediaData.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAA5wBEAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-13T13:44:27.883Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "MessageType.cs",
               "DocumentMoniker": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\MessageType.cs",
               "RelativeDocumentMoniker": "M\u00E9diaPlayer\\MessageType.cs",
               "ToolTip": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\MessageType.cs",
               "RelativeToolTip": "M\u00E9diaPlayer\\MessageType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-20T12:23:12.215Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "SendMusic.cs",
               "DocumentMoniker": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Envelopes\\SendMusic.cs",
               "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Envelopes\\SendMusic.cs",
               "ToolTip": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Envelopes\\SendMusic.cs",
               "RelativeToolTip": "M\u00E9diaPlayer\\Envelopes\\SendMusic.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-20T12:26:59.985Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AskMusic.cs",
-              "DocumentMoniker": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Envelopes\\AskMusic.cs",
-              "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Envelopes\\AskMusic.cs",
-              "ToolTip": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Envelopes\\AskMusic.cs",
-              "RelativeToolTip": "M\u00E9diaPlayer\\Envelopes\\AskMusic.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-20T12:27:06.373Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 8,
               "Title": "GenericEnvelope.cs",
               "DocumentMoniker": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\GenericEnvelope.cs",
               "RelativeDocumentMoniker": "M\u00E9diaPlayer\\GenericEnvelope.cs",
               "ToolTip": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\GenericEnvelope.cs",
               "RelativeToolTip": "M\u00E9diaPlayer\\GenericEnvelope.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-13T13:44:48.929Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 7,
               "Title": "AskCatalog.cs",
               "DocumentMoniker": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Envelopes\\AskCatalog.cs",
               "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Envelopes\\AskCatalog.cs",
@@ -238,15 +199,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 6,
               "Title": "MQTTConnectionManager.cs",
               "DocumentMoniker": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\MQTTConnectionManager.cs",
               "RelativeDocumentMoniker": "M\u00E9diaPlayer\\MQTTConnectionManager.cs",
               "ToolTip": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\MQTTConnectionManager.cs",
               "RelativeToolTip": "M\u00E9diaPlayer\\MQTTConnectionManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-13T14:07:39.019Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SendCatalog.cs",
+              "DocumentMoniker": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Envelopes\\SendCatalog.cs",
+              "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Envelopes\\SendCatalog.cs",
+              "ToolTip": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Envelopes\\SendCatalog.cs",
+              "RelativeToolTip": "M\u00E9diaPlayer\\Envelopes\\SendCatalog.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T12:26:41.606Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AskMusic.cs",
+              "DocumentMoniker": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Envelopes\\AskMusic.cs",
+              "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Envelopes\\AskMusic.cs",
+              "ToolTip": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Envelopes\\AskMusic.cs",
+              "RelativeToolTip": "M\u00E9diaPlayer\\Envelopes\\AskMusic.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T12:27:06.373Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Music.cs",
+              "DocumentMoniker": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Models\\Music.cs",
+              "RelativeDocumentMoniker": "M\u00E9diaPlayer\\Models\\Music.cs",
+              "ToolTip": "C:\\Users\\evins\\OneDrive\\Documents\\GitHub\\Evin-P_Bitruisseau\\App\\M\u00E9diaPlayer\\M\u00E9diaPlayer\\Models\\Music.cs",
+              "RelativeToolTip": "M\u00E9diaPlayer\\Models\\Music.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T12:01:31.02Z",
               "EditorCaption": ""
             },
             {
