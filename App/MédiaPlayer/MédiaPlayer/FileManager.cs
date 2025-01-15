@@ -1,4 +1,5 @@
-﻿using MQTTnet.Client;
+﻿using MQTTnet;
+using MQTTnet.Client;
 using System;
 using System.IO;
 using System.Text.Json;
@@ -6,7 +7,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MédiaPlayer.Envelopes;
 using MédiaPlayer.Models;
-using MQTTnet;
 
 namespace MédiaPlayer
 {
@@ -21,50 +21,67 @@ namespace MédiaPlayer
 
         public async Task SendFile(string topic, GenericEnvelope requestEnvelope)
         {
-            var fileRequest = JsonSerializer.Deserialize<FileRequest>(requestEnvelope.EnveloppeJson);
-            if (fileRequest == null)
+            try
             {
-                MessageBox.Show("Invalid file request.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                var fileRequest = JsonSerializer.Deserialize<FileRequest>(requestEnvelope.EnveloppeJson);
+                if (fileRequest == null)
+                {
+                    MessageBox.Show("Invalid file request.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                var filePath = Path.Combine(@"..\..\..\Music", fileRequest.Title);
+                if (!File.Exists(filePath))
+                {
+                    MessageBox.Show($"File not found: {fileRequest.Title}", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Convert file to Base64
+                var fileBytes = File.ReadAllBytes(filePath);
+                var fileContentBase64 = Convert.ToBase64String(fileBytes);
+
+                var sendMusic = new SendMusic { FileName = fileRequest.Title, Content = fileContentBase64 };
+
+                var responseEnvelope = new GenericEnvelope
+                {
+                    SenderId = mqttClient.Options.ClientId,
+                    MessageType = MessageType.ENVOIE_FICHIER,
+                    EnveloppeJson = JsonSerializer.Serialize(sendMusic)
+                };
+
+                var message = new MqttApplicationMessageBuilder()
+                    .WithTopic(topic)
+                    .WithPayload(JsonSerializer.Serialize(responseEnvelope))
+                    .WithQualityOfServiceLevel(MQTTnet.Protocol.MqttQualityOfServiceLevel.AtLeastOnce)
+                    .Build();
+
+                await mqttClient.PublishAsync(message);
+                Console.WriteLine($"File sent: {fileRequest.Title}");
             }
-
-            var filePath = Path.Combine(@"..\..\..\Music", fileRequest.FileName);
-            if (!File.Exists(filePath))
+            catch (Exception ex)
             {
-                MessageBox.Show($"File not found: {fileRequest.FileName}", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                MessageBox.Show($"Error sending file: {ex.Message}", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            var fileContent = Convert.ToBase64String(File.ReadAllBytes(filePath));
-            var sendMusic = new SendMusic { FileName = fileRequest.FileName, Content = fileContent };
-
-            var responseEnvelope = new GenericEnvelope
-            {
-                SenderId = mqttClient.Options.ClientId,
-                MessageType = MessageType.ENVOIE_FICHIER,
-                EnveloppeJson = JsonSerializer.Serialize(sendMusic)
-            };
-
-            var message = new MqttApplicationMessageBuilder()
-                .WithTopic(topic)
-                .WithPayload(JsonSerializer.Serialize(responseEnvelope))
-                .WithQualityOfServiceLevel(MQTTnet.Protocol.MqttQualityOfServiceLevel.AtLeastOnce)
-                .Build();
-
-            await mqttClient.PublishAsync(message);
         }
 
 
         public async Task SendData(string topic, string data)
         {
-            var message = new MqttApplicationMessageBuilder()
-                .WithTopic(topic)
-                .WithPayload(data)
-                .WithQualityOfServiceLevel(MQTTnet.Protocol.MqttQualityOfServiceLevel.AtLeastOnce)
-                .Build();
+            try
+            {
+                var message = new MqttApplicationMessageBuilder()
+                    .WithTopic(topic)
+                    .WithPayload(data)
+                    .WithQualityOfServiceLevel(MQTTnet.Protocol.MqttQualityOfServiceLevel.AtLeastOnce)
+                    .Build();
 
-            await mqttClient.PublishAsync(message);
+                await mqttClient.PublishAsync(message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error sending data: {ex.Message}", "Data Send Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
     }
 }

@@ -9,7 +9,7 @@ namespace MédiaPlayer
     public static class MQTTConnectionManager
     {
         private static IMqttClient client;
-        private static readonly string brokerAddress = "localhost";
+        private static readonly string brokerAddress = "mqtt.blue.section-inf.ch";
         private static readonly int port = 1883;
         private static readonly string username = "ict";
         private static readonly string password = "321";

@@ -3,16 +3,16 @@
     // Définit les détails des fichiers média stockés ou échangés.
     public class MediaData
     {
-        public string FileName { get; set; }
-        public string FileArtist { get; set; }
-        public string FileType { get; set; }
-        public long FileSize { get; set; }
-        public string FileDuration { get; set; }
+        public string Title { get; set; }
+        public string Artist { get; set; }
+        public string Type { get; set; }
+        public long Size { get; set; }
+        public string Duration { get; set; }
 
 
         public string GetFormattedDetails()
         {
-            return $"{FileName} | {FileArtist} | {FileType} | {FileSize} bytes | Durée: {FileDuration}";
+            return $"{Title} | {Artist} | {Type} | {Size} bytes | Durée: {Duration}";
         }
     }
   
@@ -20,6 +20,6 @@
     // Utilisée pour demander un fichier spécifique par son nom.
     public class FileRequest
     {
-        public string FileName { get; set; }
+        public string Title { get; set; }
     }
 }

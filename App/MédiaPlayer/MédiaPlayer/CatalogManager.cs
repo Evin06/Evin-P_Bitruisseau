@@ -1,6 +1,7 @@
 ﻿using MQTTnet;
 using MQTTnet.Client;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +13,7 @@ namespace MédiaPlayer
     public class CatalogManager
     {
         private readonly IMqttClient mqttClient;
+        public List<Music> musics = new List<Music>();
 
         public CatalogManager(IMqttClient mqttClient)
         {
@@ -20,44 +22,51 @@ namespace MédiaPlayer
 
         public async Task SendCatalog(string topic)
         {
-            var catalog = new SendCatalog { Content = LoadLocalMediaData() };
-            if (!catalog.Content.Any())
+            try
             {
-                MessageBox.Show("No media to send.", "Catalog Empty", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                if (musics.Count == 0)
+                {
+                    MessageBox.Show("No media to send.", "Catalog Empty", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                var envelope = new GenericEnvelope
+                {
+                    SenderId = mqttClient.Options.ClientId,
+                    MessageType = MessageType.ENVOIE_CATALOGUE,
+                    EnveloppeJson = JsonSerializer.Serialize(musics)
+                };
+
+                var message = new MqttApplicationMessageBuilder()
+                    .WithTopic(topic)
+                    .WithPayload(JsonSerializer.Serialize(envelope))
+                    .WithQualityOfServiceLevel(MQTTnet.Protocol.MqttQualityOfServiceLevel.AtLeastOnce)
+                    .Build();
+
+                await mqttClient.PublishAsync(message);
             }
-
-            var envelope = new GenericEnvelope
+            catch (Exception ex)
             {
-                SenderId = mqttClient.Options.ClientId,
-                MessageType = MessageType.ENVOIE_CATALOGUE,
-                EnveloppeJson = JsonSerializer.Serialize(catalog)
-            };
-
-            var message = new MqttApplicationMessageBuilder()
-                .WithTopic(topic)
-                .WithPayload(JsonSerializer.Serialize(envelope))
-                .WithQualityOfServiceLevel(MQTTnet.Protocol.MqttQualityOfServiceLevel.AtLeastOnce)
-                .Build();
-
-            await mqttClient.PublishAsync(message);
+                MessageBox.Show($"Error sending catalog: {ex.Message}", "Catalog Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-
-        private List<MediaData> LoadLocalMediaData()
-        {
-            // Load media data from disk; placeholder for actual implementation
-            return new List<MediaData>();
-        }
         public async Task SendData(string topic, string data)
         {
-            var message = new MqttApplicationMessageBuilder()
-                .WithTopic(topic)
-                .WithPayload(data)
-                .WithQualityOfServiceLevel(MQTTnet.Protocol.MqttQualityOfServiceLevel.AtLeastOnce)
-                .Build();
+            try
+            {
+                var message = new MqttApplicationMessageBuilder()
+                    .WithTopic(topic)
+                    .WithPayload(data)
+                    .WithQualityOfServiceLevel(MQTTnet.Protocol.MqttQualityOfServiceLevel.AtLeastOnce)
+                    .Build();
 
-            await mqttClient.PublishAsync(message);
+                await mqttClient.PublishAsync(message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error sending data: {ex.Message}", "Data Send Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
