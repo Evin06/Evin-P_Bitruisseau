@@ -6,7 +6,7 @@ namespace MédiaPlayer.Envelopes
     {
         public string SenderId { get; set; }
         public MessageType MessageType { get; set; }
-        public string EnveloppeJson { get; set; }
+        public string EnvelopeJson { get; set; }
 
         public string ToJson()
         {

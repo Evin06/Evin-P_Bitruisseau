@@ -10,10 +10,10 @@ namespace MédiaPlayer.Models
     {
         public enum MessageType
         {
-            ENVOIE_CATALOGUE = 0,
-            DEMANDE_CATALOGUE = 1,
-            DEMANDE_FICHIER = 2,
-            ENVOIE_FICHIER = 3
+            ENVOIE_CATALOGUE,
+            DEMANDE_CATALOGUE,
+            ENVOIE_FICHIER,
+            DEMANDE_FICHIER
         }
     }
 

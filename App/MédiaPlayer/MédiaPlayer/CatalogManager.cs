@@ -12,8 +12,8 @@ namespace MédiaPlayer
 {
     public class CatalogManager
     {
-        private readonly IMqttClient mqttClient;
-        public List<Music> musics = new List<Music>();
+        public readonly IMqttClient mqttClient;
+        public List<MediaData> musics = new List<MediaData>();
 
         public CatalogManager(IMqttClient mqttClient)
         {
@@ -29,12 +29,14 @@ namespace MédiaPlayer
                     MessageBox.Show("No media to send.", "Catalog Empty", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
+                SendCatalog sendCatalog = new SendCatalog();
+                sendCatalog.Content = musics;
 
-                var envelope = new GenericEnvelope
+                GenericEnvelope envelope = new GenericEnvelope
                 {
                     SenderId = mqttClient.Options.ClientId,
                     MessageType = MessageType.ENVOIE_CATALOGUE,
-                    EnveloppeJson = JsonSerializer.Serialize(musics)
+                    EnvelopeJson = sendCatalog.ToJson()
                 };
 
                 var message = new MqttApplicationMessageBuilder()

@@ -13,51 +13,50 @@ namespace MédiaPlayer
     public class FileManager
     {
         private readonly IMqttClient mqttClient;
+        public List<MediaData> myMusicList;
 
         public FileManager(IMqttClient mqttClient)
         {
             this.mqttClient = mqttClient;
         }
 
-        public async Task SendFile(string topic, GenericEnvelope requestEnvelope)
+        public async Task SendFile(GenericEnvelope requestEnvelope)
         {
             try
             {
-                var fileRequest = JsonSerializer.Deserialize<FileRequest>(requestEnvelope.EnveloppeJson);
+                AskMusic fileRequest = JsonSerializer.Deserialize<AskMusic>(requestEnvelope.EnvelopeJson);
                 if (fileRequest == null)
                 {
                     MessageBox.Show("Invalid file request.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                var filePath = Path.Combine(@"..\..\..\Music", fileRequest.Title);
+                string filePath = "..\\..\\..\\Music\\" + fileRequest.FileName;
                 if (!File.Exists(filePath))
                 {
-                    MessageBox.Show($"File not found: {fileRequest.Title}", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"File not found: {fileRequest.FileName}", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 // Convert file to Base64
-                var fileBytes = File.ReadAllBytes(filePath);
-                var fileContentBase64 = Convert.ToBase64String(fileBytes);
 
-                var sendMusic = new SendMusic { FileName = fileRequest.Title, Content = fileContentBase64 };
+                SendMusic sendMusic = new SendMusic { FileInfo = myMusicList.First(music => music.Title == Path.GetFileNameWithoutExtension(fileRequest.FileName)), Content = Convert.ToBase64String(File.ReadAllBytes(filePath)) };
 
-                var responseEnvelope = new GenericEnvelope
+                GenericEnvelope responseEnvelope = new GenericEnvelope
                 {
                     SenderId = mqttClient.Options.ClientId,
                     MessageType = MessageType.ENVOIE_FICHIER,
-                    EnveloppeJson = JsonSerializer.Serialize(sendMusic)
+                    EnvelopeJson = sendMusic.ToJson()
                 };
 
                 var message = new MqttApplicationMessageBuilder()
-                    .WithTopic(topic)
+                    .WithTopic(requestEnvelope.SenderId)
                     .WithPayload(JsonSerializer.Serialize(responseEnvelope))
                     .WithQualityOfServiceLevel(MQTTnet.Protocol.MqttQualityOfServiceLevel.AtLeastOnce)
                     .Build();
 
                 await mqttClient.PublishAsync(message);
-                Console.WriteLine($"File sent: {fileRequest.Title}");
+                Console.WriteLine($"File sent: {fileRequest.FileName}");
             }
             catch (Exception ex)
             {

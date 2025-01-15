@@ -2,7 +2,7 @@ namespace MédiaPlayer.Models
 {
     public class Music
     {
-        public string Name { get; set; }
+        public string Title { get; set; }
         public string Artist { get; set; }
         public string Duration { get; set; }
         public string Extension { get; set; }
@@ -11,7 +11,7 @@ namespace MédiaPlayer.Models
 
         public string GetFormattedDetails()
         {
-            return $"{Name} | {Artist} | {FileType} | {Size} bytes | Durée : {Duration}";
+            return $"{Title} | {Artist} | {FileType} | {Size} bytes | Durée : {Duration}";
         }
     }
 }
