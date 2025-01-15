@@ -1,0 +1,2 @@
+- Modifier le code et corriger des parties pour que le projet puisse faire toutes les fonctionnalités demandé 
+(en s'aidant du projet de Tiago et en testant les fonctionnalités avec son projet)(280min)
